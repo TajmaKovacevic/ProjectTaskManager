@@ -84,6 +84,20 @@ margin-left: 35%;
 			position: absolute;
 			width: 30px;
 		}
+		.newTeam{
+		margin-top: -3%;
+margin-left: -8%;
+		}
+		.newPerson{
+		margin-top: -3%;
+margin-left: -8%;
+		}
+		.previewTeam{
+		margin-top: -5%;
+		}
+		.previewPerson{
+		margin-top: -5%;
+		}
 		.heart:after{
 			content: "Projects";
 			left: 21px;
@@ -110,12 +124,22 @@ margin-left: 35%;
 			left: 24px;
 			top: 45px;
 		}
-     .previewTeam:after{
+       .previewTeam:after{
 			content: "Preview";
 			left: 21px;
 			top: 45px;
 		}
 
+.newPerson:after{
+		content: "New";
+			left: 24px;
+			top: 45px;
+		}
+       .previewPerson:after{
+			content: "Preview";
+			left: 21px;
+			top: 45px;
+		}
 		.button:hover{
 			background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
 			background-image: linear-gradient(top, #fff, #f4f1ee);
@@ -126,7 +150,11 @@ margin-left: 35%;
 			color:#2C61EC;
 			text-shadow:0px 0px 6px #f94e66;
 		}
-.previewTeam:hover:after{
+        .previewTeam:hover:after{
+			color:#2C61EC;
+			text-shadow:0px 0px 6px #f94e66;
+		}
+		.previewPerson:hover:after{
 			color:#2C61EC;
 			text-shadow:0px 0px 6px #f94e66;
 		}
@@ -149,7 +177,10 @@ margin-left: 35%;
 			text-shadow:0px 0px 6px #eb2f2f;
 		}
 
-		
+		.newPerson:hover:after{
+			color:#eb2f2f;
+			text-shadow:0px 0px 6px #eb2f2f;
+		}
 
 		.button:active{
 			background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
@@ -194,6 +225,7 @@ margin-left:35%;
 	color: #9D9DA3;
 	text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
 	margin-left:30%;
+	margin-top: -7%;
 	}
 	
 	#manager_createTeam{
@@ -217,7 +249,7 @@ border-radius: 7px;
 box-shadow: 0 5px #9D9DA3;
 padding: 5px 5px 10px 35px;
 position: fixed;
-bottom: 580px;
+bottom: 530px;
 right: 30px;
 
 }
@@ -231,3 +263,26 @@ line-height: 0.8;
 color: #fff;
 font-family: 'Glyphicons Halflings';
 }
+
+#add-person{
+font-family: 'proxima_nova_ltlight', sans-serif;
+font-weight: normal;
+font-size: 32px;
+line-height: 46px;
+color: #9D9DA3;
+text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+margin-left: -30%;
+	}
+	
+	#arrow{
+	color: rgb(37, 178, 66);
+font-size: 70px;
+margin-left: -15%;
+margin-top: -6%;
+	}
+#arrow-right{
+	color: rgb(37, 178, 66);
+font-size: 70px;
+margin-top: -5%;
+margin-left: 28%;
+	}

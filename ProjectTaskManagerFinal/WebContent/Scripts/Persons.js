@@ -66,3 +66,7 @@ function getFirstChildWithTagName( element, tagName ) {
     function goToPreviewPersons(){
         window.location = 'EditPerson.jsp';
        }
+
+    function goToIndex(){
+    	window.location = 'index.jsp';
+    }

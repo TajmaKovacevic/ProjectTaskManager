@@ -1,5 +1,5 @@
 html, body{
-  /*min-height:100%;*/
+  min-height:100%;
 }
 
 body{
@@ -7,54 +7,6 @@ body{
 		background-image: linear-gradient(top, #edecec, #cecbc9);
 }
 
-
-
-ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
-ul#tabs li { display: inline; }
-ul#tabs li a { color: #42454a; background-color: #dedbde; border: 1px solid #c9c3ba; border-bottom: none; padding: 0.3em; text-decoration: none; }
-ul#tabs li a:hover { background-color: #f1f0ee; }
-ul#tabs li a.selected { color: #000; background-color: #f1f0ee; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
-div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee;}
-div.tabContent #add { height: 500px; width: 650px;}
-div.tabContent #edit { height: 500px; width: 650px;}
-div.tabContent.hide { display: none; }
-
-/*login*/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
-	display: block;
-}
-
-body {
-	line-height: 1;
-}
-
-ol,ul {
-	list-style: none;
-}
-
-blockquote,q {
-	quotes: none;
-}
-
-blockquote:before,blockquote:after,q:before,q:after {
-	content: '';
-	content: none;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
 
 
@@ -65,8 +17,8 @@ table {
 	position: absolute;
 	left: 10%;
 	top: 25%;
-	margin-left: -110px;
-	margin-top: -75px;
+	margin-left: 30%;
+    margin-top: -9%;
 
 	-webkit-animation: login 1s ease-in-out;
 	-moz-animation: login 1s ease-in-out;
@@ -247,7 +199,7 @@ border-radius: 7%;
 }
 
 #edit_person input[type="submit"] {
-	width: 100%;
+	width: 110%;
 	height: 50px;
 	margin-top: 7px;
 	color: #fff;
@@ -304,4 +256,30 @@ border-radius: 7%;
 
 	-webkit-box-shadow: inset 0px 1px 0px #93a9e9;
 	box-shadow: inset 0px 1px 0px #93a9e9;
+}
+
+.exit-btn-3 {
+
+background-color: #F8F8F8;
+background-image: url("http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/inside-logout-icon.png ");
+background-size: 30px 30px;
+background-repeat: no-repeat;
+color: #585858;
+border-radius: 7px;
+box-shadow: 0 5px #9D9DA3;
+padding: 5px 5px 10px 35px;
+position: fixed;
+bottom: 560px;
+right: 30px;
+
+}
+
+.exit-btn-3:before {
+position: absolute;
+left: 0;
+width: 40;
+font-size: 160%;
+line-height: 0.8;
+color: #fff;
+font-family: 'Glyphicons Halflings';
 }

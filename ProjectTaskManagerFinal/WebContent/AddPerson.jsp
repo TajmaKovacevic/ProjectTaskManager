@@ -12,9 +12,7 @@
 
 <body onload="init()">
 
-
-<!--div class="tabContent" id="add"-->
-      <div>
+      <div id="add">
         <form id="add_person"  action="AddPerson">
         <label for="username">Username&nbsp</label><input type="text" name="username" class="placeholder" placeholder="username"><br><br>
         <label for="password">Password&nbsp</label><input type="text" name="password" class="placeholder" placeholder="password"><br><br>
@@ -28,7 +26,6 @@
         </form>
        
       </div>
-<!--/div-->
-
+ <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
 </body>
 </html>

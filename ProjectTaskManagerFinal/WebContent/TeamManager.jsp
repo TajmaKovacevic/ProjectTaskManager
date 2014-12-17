@@ -17,8 +17,10 @@
 </div>
 <div id="buttonHolder">
 <p id="manager_createTeam">Create a new Team<p/>
+<div id="arrow">&#8600;</div>
   <a href="#" class="button newTeam" onclick="goToCreateNewTeam()"></a>
 <p id="mainTitle_manager">Preview existing teams<p/>
+<div id="arrow-right">&#8601;</div>
   <a href="#" class="button previewTeam" onclick="goToPreviewTems()"></a>
 	 
 </div>

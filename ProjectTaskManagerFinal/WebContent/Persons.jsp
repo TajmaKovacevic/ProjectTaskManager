@@ -17,8 +17,10 @@
 </div>
 <div id="buttonHolder">
 <p id="add-person">Add a new person<p/>
+<div id="arrow">&#8600;</div>
   <a href="#" class="button newPerson" onclick="goToCreateNewPerson()"></a>
 <p id="mainTitle_manager">Preview and edit persons<p/>
+<div id="arrow-right">&#8601;</div>
   <a href="#" class="button previewPerson" onclick="goToPreviewPersons()"></a>
   
 </div>

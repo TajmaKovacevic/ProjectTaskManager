@@ -7,7 +7,14 @@ body{
 		background-image: linear-gradient(top, #edecec, #cecbc9);
 }
 
-
+label{
+	font-family: 'proxima_nova_ltlight', sans-serif;
+font-weight: normal;
+font-size: 24px;
+line-height: 46px;
+color: #13BE6A;
+text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+	}
 
 ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
 ul#tabs li { display: inline; }
