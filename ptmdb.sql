@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2014 at 10:58 PM
+-- Generation Time: Dec 23, 2014 at 12:20 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -48,7 +48,7 @@ INSERT INTO `permission` (`id`, `permission`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `estimate` int(11) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
@@ -57,17 +57,7 @@ CREATE TABLE IF NOT EXISTS `project` (
   PRIMARY KEY (`id`),
   KEY `fk_teamp` (`team_id`),
   KEY `fk_userp` (`manager_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `project`
---
-
-INSERT INTO `project` (`id`, `name`, `estimate`, `description`, `team_id`, `manager_id`) VALUES
-(1, 'proj1', 560, 'fdsfdsfdsafdsa', 1, 0),
-(2, 'proj2', 560, 'fdsafadsfsda', 2, 1),
-(3, 'proj3', 560, 'ipouuu88oij', 3, 2),
-(4, 'proj4', 560, 'tzfdrtddtht', 4, 3);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -76,7 +66,7 @@ INSERT INTO `project` (`id`, `name`, `estimate`, `description`, `team_id`, `mana
 --
 
 CREATE TABLE IF NOT EXISTS `task` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
   `estimate` int(11) DEFAULT NULL,
@@ -87,15 +77,7 @@ CREATE TABLE IF NOT EXISTS `task` (
   PRIMARY KEY (`id`),
   KEY `fk_pers` (`person_id`),
   KEY `fk_proj` (`project_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `task`
---
-
-INSERT INTO `task` (`id`, `name`, `description`, `estimate`, `status`, `created`, `person_id`, `project_id`) VALUES
-(1, 'task1', 'hdshafhdjskf', 5, 'dsfds', '2014-12-02', 0, 1),
-(2, 'proj2', 'fsadfdsafasd', 6, 'dsfds', '2014-12-11', 4, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -104,20 +86,21 @@ INSERT INTO `task` (`id`, `name`, `description`, `estimate`, `status`, `created`
 --
 
 CREATE TABLE IF NOT EXISTS `team` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
+  `team_lider` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`id`, `name`) VALUES
-(1, 'team1'),
-(2, 'team2'),
-(3, 'team3'),
-(4, 'team4');
+INSERT INTO `team` (`id`, `name`, `team_lider`) VALUES
+(1, 'team1', 0),
+(2, 'team2', 0),
+(3, 'team3', 0),
+(4, 'team4', 0);
 
 -- --------------------------------------------------------
 
@@ -152,29 +135,29 @@ INSERT INTO `team_member` (`user_id`, `team_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `lastname` varchar(50) DEFAULT NULL,
   `contact` varchar(50) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `id` int(11) NOT NULL DEFAULT '0',
   `gender` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `name`, `lastname`, `contact`, `address`, `id`, `gender`) VALUES
-('tajma', 'tajma', NULL, NULL, NULL, NULL, 0, NULL),
-('melika', 'melika', NULL, NULL, NULL, NULL, 1, NULL),
-('nadina', 'nadina', NULL, NULL, NULL, NULL, 2, NULL),
-('aa', 'aa', 'aa', 'aa', 'aa', 'aa', 3, 'female'),
-('bb', 'bb', 'bb', 'bb', 'bb', 'bb', 4, 'male'),
-('cc', 'cc', 'cc', 'cc', 'cc', 'cc', 5, 'male'),
-('dd', 'dd', 'dd', 'dd', 'dd', 'dd', 7, 'male');
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `lastname`, `contact`, `gender`) VALUES
+(1, 'tajma', 'tajma', 'tajma', 'kovacevic', 'tajma@tajma', 'female'),
+(2, 'melika', 'melika', 'melika', 'kiselica', 'melika@melika', 'female'),
+(3, 'nadina', 'nadina', 'nadina', 'kunalic', 'nadina@nadina', 'female'),
+(4, 'tt', 'tt', 'tt', 'tt', 'tajma.kovacevic@yahoo.com', 'Male'),
+(5, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'rr', 'rr', 'rr', 'rr', 'tajma.kovacevic@yahoo.com', 'Male'),
+(7, 'tt', 'yy', 'yy', 'yy', 'tajma.kovacevic@yahoo.com', 'Male'),
+(8, '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -183,53 +166,22 @@ INSERT INTO `user` (`username`, `password`, `name`, `lastname`, `contact`, `addr
 --
 
 CREATE TABLE IF NOT EXISTS `userpermission` (
-  `ID` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `User_id` int(11) DEFAULT NULL,
   `Permission_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
   KEY `fk_userid` (`User_id`),
   KEY `fk_perid` (`Permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `userpermission`
 --
 
 INSERT INTO `userpermission` (`ID`, `User_id`, `Permission_id`) VALUES
-(1, 0, 1),
-(2, 1, 2),
-(3, 2, 3);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `project`
---
-ALTER TABLE `project`
-  ADD CONSTRAINT `fk_teamp` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`),
-  ADD CONSTRAINT `fk_userp` FOREIGN KEY (`manager_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `task`
---
-ALTER TABLE `task`
-  ADD CONSTRAINT `fk_pers` FOREIGN KEY (`person_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `fk_proj` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`);
-
---
--- Constraints for table `team_member`
---
-ALTER TABLE `team_member`
-  ADD CONSTRAINT `fk_teams` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`),
-  ADD CONSTRAINT `fk_tmid` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `userpermission`
---
-ALTER TABLE `userpermission`
-  ADD CONSTRAINT `fk_perid` FOREIGN KEY (`Permission_id`) REFERENCES `permission` (`id`),
-  ADD CONSTRAINT `fk_userid` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`);
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
