@@ -4,6 +4,5 @@ function goToIndex(){
 
 function goToAdministration()
 {
-	
-window.location='Administration.jsp'
+window.location='Administration.jsp';
 }

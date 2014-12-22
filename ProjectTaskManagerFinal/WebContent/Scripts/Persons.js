@@ -18,7 +18,7 @@ var contentDivs = new Array();
 
       for ( var id in tabLinks ) {
         tabLinks[id].onclick = showTab;
-        tabLinks[id].onfocus = function() { this.blur() };
+        tabLinks[id].onfocus = function() { this.blur();};
         if ( i == 0 ) tabLinks[id].className = 'selected';
         i++;
       }

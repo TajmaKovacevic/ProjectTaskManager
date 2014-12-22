@@ -14,15 +14,14 @@
 
       <div id="add">
         <form id="add_person"  action="AddPerson">
-        <label for="username">Username&nbsp</label><input type="text" name="username" class="placeholder" placeholder="username"><br><br>
-        <label for="password">Password&nbsp</label><input type="text" name="password" class="placeholder" placeholder="password"><br><br>
-        <label for="firstname">First name&nbsp</label><input type="text" name="firstname" class="placeholder" placeholder="first name"><br><br>
-        <label for="lastname">Last  name&nbsp</label><input type="text" name="lastname" class="placeholder" placeholder="last name"><br><br>
-        <label for="gender">Gender&nbsp</label><input type="radio" name="gender" value="Male" class="placeholder" placeholder="gender">Male&nbsp&nbsp
-        <input type="radio" name="gender" value="Female" class="placeholder" placeholder="gender">Female<br><br>
-        <label for="idnum">ID number&nbsp</label><input type="text" name="idnum" class="placeholder" placeholder="id number"><br><br>
-        <label for="email">E-mail&nbsp</label><input type="email" name="email" class="placeholder" placeholder="email"><br><br>
-        <input type="submit" value="Add new person">
+        <label for="username">Username&nbsp;</label><input type="text" name="username" class="placeholder" placeholder="username">
+        <label for="password">Password&nbsp;</label><input type="text" name="password" class="placeholder" placeholder="password">
+        <label for="firstname">First name&nbsp;</label><input type="text" name="firstname" class="placeholder" placeholder="first name">
+        <label for="lastname">Last  name&nbsp;</label><input type="text" name="lastname" class="placeholder" placeholder="last name">
+        <label for="gender">Gender&nbsp;</label><input type="radio" name="gender" value="Male" class="placeholder" placeholder="gender">Male&nbsp;&nbsp;
+        <input type="radio" name="gender" value="Female" class="placeholder" placeholder="gender">Female<br/>
+        <label for="email">E-mail&nbsp;</label><input type="email" name="email" class="placeholder" placeholder="email"><br>
+        <br/><input type="submit" value="Add new person">
         </form>
        
       </div>

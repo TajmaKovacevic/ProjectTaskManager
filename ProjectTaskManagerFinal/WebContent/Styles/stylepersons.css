@@ -128,7 +128,7 @@ border-radius: 7%;
 }
 
 #add_person input[type="submit"] {
-	width: 100%;
+	width: 110%;
 	height: 50px;
 	margin-top: 7px;
 	color: #fff;
@@ -283,3 +283,12 @@ line-height: 0.8;
 color: #fff;
 font-family: 'Glyphicons Halflings';
 }
+
+label{
+	font-family: 'proxima_nova_ltlight', sans-serif;
+font-weight: normal;
+font-size: 18px;
+line-height: 46px;
+color: #13BE6A;
+text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+	}

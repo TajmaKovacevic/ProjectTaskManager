@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-
 
 public class DBManager {
 	Connection connection;
@@ -73,6 +71,33 @@ public class DBManager {
     	}
     }
     
+    public boolean insertUser(String username, String password, String name,String lastname,String contact, String gender){
+    	if(openConnection()){
+    		 try{
+    			final String SQL_INSERT = "INSERT INTO user (username, password, name, lastname, contact,gender) VALUES (?, ?, ?, ?, ?, ?)";
+    			statement=connection.prepareStatement(SQL_INSERT);
+    			statement.setString(1, username);
+    		    statement.setString(2, password);
+    		    statement.setString(3, name);
+    		    statement.setString(4, lastname);
+    		    statement.setString(5, contact);
+    		    statement.setString(6, gender);
+    		    statement.executeUpdate();
+    		    return true;
+    		    
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return false;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	else{
+    		return false;
+    	}
+    }
     public boolean hasUserPermission(String username,int permisssion){
     	if(openConnection()){
    		 try{
