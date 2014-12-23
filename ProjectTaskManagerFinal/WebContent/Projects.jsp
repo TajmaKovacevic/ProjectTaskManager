@@ -27,5 +27,6 @@
   
 </div>
   <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
+ 
 </body>
 </html>

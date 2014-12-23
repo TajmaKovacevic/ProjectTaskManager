@@ -53,21 +53,14 @@ var contentDivs = new Array();
         return url.substring( hashPos + 1 );
       }
       
-      function goToCreateNewProject(){
+     /* function goToCreateNewProject(){
           window.location = 'AddProject.jsp';
          }
       
       function goToPreviewProjects(){
           window.location = 'EditProject.jsp';
-         }
+         }*/
 
       function goToIndex(){
       	window.location = 'index.jsp';
-      }
-      
-
-      function goToAdministration()
-      {
-      	
-      window.location='Administration.jsp';
       }

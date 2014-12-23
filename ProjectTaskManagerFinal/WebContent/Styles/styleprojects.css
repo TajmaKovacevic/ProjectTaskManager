@@ -325,3 +325,9 @@ input[type="textarea"] {
 width: 220px;
 height: 100px;
 }
+
+select#sel {
+width: 300px;
+height: 300px;
+border-radius: 6px;
+}

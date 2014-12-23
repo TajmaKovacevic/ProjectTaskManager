@@ -1,6 +1,12 @@
 var tabLinks = new Array();
 var contentDivs = new Array();
 
+function goToAdministration()
+{
+	
+window.location='Administration.jsp';
+}
+
  function init() {
 
       // Grab the tab links and content divs from the page

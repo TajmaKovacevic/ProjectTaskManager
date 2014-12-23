@@ -4,14 +4,10 @@ html, body{
 
 body{
   		background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
-		background-image: linear-gradient(top, #edecec, #cecbc9);
+			background-image: linear-gradient(top, #edecec, #cecbc9);
 }
 
-
-
-
-
-#add_person, #edit_person {
+#add_task, #edit_task {
 	width: 220px;
 	height: 155px;
 	position: absolute;
@@ -58,7 +54,7 @@ color: #FFFFFF;
 border-radius: 7%;
 }
 
-#add_person input[type="text"], input[type="email"]{
+#add_task input[type="text"], input[type="number"]{
 	width: 100%;
 	height: 30px;
 	positon: relative;
@@ -87,7 +83,7 @@ border-radius: 7%;
 	transition: all .1s ease-in-out;
 }
 
-#edit_person input[type="text"], input[type="email"]{
+#edit_task input[type="text"], input[type="number"], input[type="textarea"]{
 	width: 100%;
 	height: 30px;
 	positon: relative;
@@ -118,16 +114,16 @@ border-radius: 7%;
 
 
 
-#add_person input[type="text"]:focus, input[type="email"]:focus {
+#add_task input[type="text"]:focus, input[type="number"]:focus, input[type="textarea"]:focus {
 	-webkit-box-shadow: inset 0px 2px 0px #a7a7a7;
 	box-shadow: inset 0px 2px 0px #a7a7a7;
 }
 
-#add_person input:first-child {
+#add_task input:first-child {
 	margin-top: 0px;
 }
 
-#add_person input[type="submit"] {
+#add_task input[type="submit"] {
 	width: 110%;
 	height: 50px;
 	margin-top: 7px;
@@ -162,7 +158,7 @@ border-radius: 7%;
 	transition: all .1s ease-in-out;
 }
 
-#add_person input[type="submit"]:hover {
+#add_task input[type="submit"]:hover {
 	background-color: #5BDC7F;
 	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
 	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
@@ -175,7 +171,7 @@ border-radius: 7%;
 	margin-top: 10px;
 }
 
-#add_person input[type="submit"]:active {
+#add_task input[type="submit"]:active {
 	background-color: #5BDC7F;
 	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
 	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
@@ -189,16 +185,16 @@ border-radius: 7%;
 
 //
 
-#edit_person input[type="text"]:focus, input[type="email"]:focus {
+#edit_task input[type="text"]:focus {
 	-webkit-box-shadow: inset 0px 2px 0px #a7a7a7;
 	box-shadow: inset 0px 2px 0px #a7a7a7;
 }
 
-#edit_person input:first-child {
+#edit_task input:first-child {
 	margin-top: 0px;
 }
 
-#edit_person input[type="submit"] {
+#edit_task input[type="submit"] {
 	width: 110%;
 	height: 50px;
 	margin-top: 7px;
@@ -233,7 +229,7 @@ border-radius: 7%;
 	transition: all .1s ease-in-out;
 }
 
-#edit_person input[type="submit"]:hover {
+#edit_task input[type="submit"]:hover {
 	background-color: #5BDC7F;
 	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
 	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
@@ -246,7 +242,7 @@ border-radius: 7%;
 	margin-top: 10px;
 }
 
-#edit_person input[type="submit"]:active {
+#edit_task input[type="submit"]:active {
 	background-color: #5BDC7F;
 	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
 	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
@@ -293,13 +289,56 @@ color: #13BE6A;
 text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
 	}
 	
-/*select#sel {
-position: relative;
-left: 0;
-width: 300px;
-height: 300px;
+/*#add_project input[type="number"]:active {
+	width: 100%;
+height: 40px;
+positon: relative;
+margin-top: 7px;
+font-size: 14px;
+color: #444;
+outline: none;
+border: 1px solid rgba(0, 0, 0, .49);
+padding-left: 20px;
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding-box;
+background-clip: padding-box;
 border-radius: 6px;
-}*/
+background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
+-webkit-box-shadow: inset 0px 2px 0px #d9d9d9;
+box-shadow: inset 0px 2px 0px #d9d9d9;
+-webkit-transition: all .1s ease-in-out;
+-moz-transition: all .1s ease-in-out;
+-o-transition: all .1s ease-in-out;
+-ms-transition: all .1s ease-in-out;
+transition: all .1s ease-in-out;
+	
+	}*/
+
+select {
+border-radius: 6px;
+width: 245px;
+height: 35px;
+border-color: grey;
+}
+
+input[type="textarea"] {
+width: 220px;
+height: 60px;
+}
+
+input[type="date"] {
+width: 240px;
+height: 30px;
+border-radius: 5px;
+border-bottom-color: black;
+border-bottom-width: thin;
+border-left-color: black;
+border-left-width: thin;
+border-right-color: black;
+border-right-width: thin;
+border-top-color: black;
+border-top-width: thin;
+}
 
 select#sel {
 width: 300px;
