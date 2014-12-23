@@ -12,7 +12,7 @@
 
 <body onload="init()">
 
-      <div id="add">
+ <div id="add">
         <form id="add_person"  action="AddPerson">
         <label for="username">Username&nbsp;</label><input type="text" name="username" class="placeholder" placeholder="username">
         <label for="password">Password&nbsp;</label><input type="text" name="password" class="placeholder" placeholder="password">
@@ -23,7 +23,6 @@
         <label for="email">E-mail&nbsp;</label><input type="email" name="email" class="placeholder" placeholder="email"><br>
         <br/><input type="submit" value="Add new person">
         </form>
-       
       </div>
  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
 </body>
