@@ -7,7 +7,6 @@ public class User {
  private String name;
  private String lastName;
  private String contact;
- private String address;
  private boolean gender;
  
 public void setUsername(String username) {
@@ -34,12 +33,7 @@ public void setGender(boolean gender) {
 public boolean isGender() {
 	return gender;
 }
-public void setAddress(String address) {
-	this.address = address;
-}
-public String getAddress() {
-	return address;
-}
+
 public void setContact(String contact) {
 	this.contact = contact;
 }

@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
+import objects.User;
+
 
 public class DBManager {
 	Connection connection;
@@ -69,6 +72,35 @@ public class DBManager {
     	else{
     		return false;
     	}
+    }
+    public List<User> getUsers(){
+    	if(openConnection()){
+    		 try{
+    			List<User> users=null;
+    			final String SQL_SELECT = "SELECT * FROM USER";
+    			statement=connection.prepareStatement(SQL_SELECT);
+    		    ResultSet rs=statement.executeQuery();
+    		    while(rs.next())
+	            {
+    		    	User u=new User();
+    		    	u.setUsername(rs.getString(1));
+    		    	u.setUsername(rs.getString(2));
+    		    	u.setUsername(rs.getString(3));
+    		    	u.setUsername(rs.getString(4));
+    		    	u.setUsername(rs.getString(5));
+    		    	u.setUsername(rs.getString(6));
+    		    	users.add(u);
+    		    	}
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return null;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	return null;
     }
     
     public boolean insertUser(String username, String password, String name,String lastname,String contact, String gender){
