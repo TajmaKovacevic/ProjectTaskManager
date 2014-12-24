@@ -1,8 +1,0 @@
-html, body{
-  min-height:100%;
-}
-
-body{
-  		background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
-			background-image: linear-gradient(top, #edecec, #cecbc9);
-}
