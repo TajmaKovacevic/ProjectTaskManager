@@ -29,10 +29,16 @@
    function changeFunc() {
     var selectBox = document.getElementById("sel");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-   
     
-    //document.getElementById("username_id").setAttribute("value", u.getName());
-    alert(selectedValue);
+    var parsedData = selectedValue;
+    var res = parsedData.split(",");
+    document.getElementById("username_id").setAttribute("value",  res[0].slice(2));
+    document.getElementById("password_id").setAttribute("value",  res[1]);
+    document.getElementById("firstname_id").setAttribute("value",  res[2]);
+    document.getElementById("lastname_id").setAttribute("value",  res[3]);
+    document.getElementById("gender_id").setAttribute("value",  res[4]);
+    document.getElementById("email_id").setAttribute("value",  res[6].slice(0,-2));
+
    }
 
   </script>
@@ -59,18 +65,18 @@
 	String password=users.get(i).getPassword();
 	String lastName=users.get(i).getLastName();
 	String contact=users.get(i).getContact();
-	String email=users.get(i).getEmail();
+	String email=users.get(i).getContact();
 	String gender=users.get(i).getGender();
 	List<String> someList = new ArrayList<String>();
-	someList.add(username);
-	someList.add(password);
-	someList.add(name);
-	someList.add(lastName);
-	someList.add(gender);
-	someList.add(contact);
-	someList.add(email);
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
 	%>
-    <option value=" <%= someList %> "><%= users.get(i).getName() %></option>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
 <%} %>
 </select>	
         </form> 
@@ -79,13 +85,12 @@
       <div>
         <form id="edit_person"  action="EditPerson">
         <label for="username">Username&nbsp;</label><input type="text" name="username" class="placeholder" placeholder="username" id="username_id"><br>
-        <label for="password">Password&nbsp;</label><input type="text" name="password" class="placeholder" placeholder="password"><br>
-        <label for="firstname">First name&nbsp;</label><input type="text" name="firstname" class="placeholder" placeholder="first name"><br>
-        <label for="lastname">Last  name&nbsp;</label><input type="text" name="lastname" class="placeholder" placeholder="last name"><br>
-        <label for="gender">Gender&nbsp;</label><input type="radio" name="gender" value="Male" class="placeholder" placeholder="gender">Male&nbsp;&nbsp;
-        <input type="radio" name="gender" value="Female" class="placeholder" placeholder="gender">Female<br>
-        <label for="idnum">ID number&nbsp;</label><input type="text" name="idnum" class="placeholder" placeholder="id number"><br>
-        <label for="email">E-mail&nbsp;</label><input type="email" name="email" class="placeholder" placeholder="email"><br>
+        <label for="password">Password&nbsp;</label><input type="text" name="password" class="placeholder" placeholder="password" id="password_id"><br>
+        <label for="firstname">First name&nbsp;</label><input type="text" name="firstname" class="placeholder" placeholder="first name" id="firstname_id"><br>
+        <label for="lastname">Last  name&nbsp;</label><input type="text" name="lastname" class="placeholder" placeholder="last name" id="lastname_id"><br>
+        <label for="gender">Gender&nbsp;</label><input type="radio" name="gender" value="Male" class="placeholder" placeholder="gender" id="gender_id">Male&nbsp;&nbsp;
+        <input type="radio" name="gender" value="Female" class="placeholder" placeholder="gender" id="username_id">Female<br>
+        <label for="email">E-mail&nbsp;</label><input type="email" name="email" class="placeholder" placeholder="email" id="email_id"><br>
         <input type="submit" value="Save changes">
         </form>
        
