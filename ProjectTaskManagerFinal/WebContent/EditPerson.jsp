@@ -14,6 +14,7 @@
 <%@page import="java.util.List" %>
 <%@page import="db.access.DBManager" %>
 <%@page import="objects.User" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -22,6 +23,20 @@
 <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
 <script type="text/javascript" src="Scripts/PersonEdit.js"></script>
 <title>Persons</title>
+
+ <script type="text/javascript">
+
+   function changeFunc() {
+    var selectBox = document.getElementById("sel");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   
+    
+    //document.getElementById("username_id").setAttribute("value", u.getName());
+    alert(selectedValue);
+   }
+
+  </script>
+
 </head>
 
 <body>
@@ -29,19 +44,41 @@
  <div>
         <form id="list_person"  action="AddPerson">
         <label for="pname" id="plbl">Persons &nbsp;</label><br><br>  
-		<select name="decision2" multiple id="sel">
-		<% DBManager db=new DBManager();
-		 List<User> users= db.getUsers();
-		
-		%>
-		
-		</select>
+			
+	<%
+	DBManager db=new DBManager();
+	ArrayList<User> users=db.getUsers();
+	
+	
+%>
+<select name="decision2" multiple id="sel"  onchange="changeFunc();">
+<% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getEmail();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(username);
+	someList.add(password);
+	someList.add(name);
+	someList.add(lastName);
+	someList.add(gender);
+	someList.add(contact);
+	someList.add(email);
+	%>
+    <option value=" <%= someList %> "><%= users.get(i).getName() %></option>
+<%} %>
+</select>	
         </form> 
       </div>
 
       <div>
         <form id="edit_person"  action="EditPerson">
-        <label for="username">Username&nbsp;</label><input type="text" name="username" class="placeholder" placeholder="username"><br>
+        <label for="username">Username&nbsp;</label><input type="text" name="username" class="placeholder" placeholder="username" id="username_id"><br>
         <label for="password">Password&nbsp;</label><input type="text" name="password" class="placeholder" placeholder="password"><br>
         <label for="firstname">First name&nbsp;</label><input type="text" name="firstname" class="placeholder" placeholder="first name"><br>
         <label for="lastname">Last  name&nbsp;</label><input type="text" name="lastname" class="placeholder" placeholder="last name"><br>

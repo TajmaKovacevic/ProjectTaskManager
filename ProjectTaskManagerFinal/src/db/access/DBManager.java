@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 import objects.User;
+import java.util.ArrayList;
 
 
 public class DBManager {
@@ -73,24 +74,26 @@ public class DBManager {
     		return false;
     	}
     }
-    public List<User> getUsers(){
+    public ArrayList<User> getUsers(){
     	if(openConnection()){
     		 try{
-    			List<User> users=null;
+    			 ArrayList<User> users=new ArrayList<User>();
     			final String SQL_SELECT = "SELECT * FROM USER";
     			statement=connection.prepareStatement(SQL_SELECT);
     		    ResultSet rs=statement.executeQuery();
     		    while(rs.next())
 	            {
     		    	User u=new User();
-    		    	u.setUsername(rs.getString(1));
-    		    	u.setUsername(rs.getString(2));
-    		    	u.setUsername(rs.getString(3));
-    		    	u.setUsername(rs.getString(4));
-    		    	u.setUsername(rs.getString(5));
-    		    	u.setUsername(rs.getString(6));
+    		    	u.setUsername(rs.getString("username"));
+    		    	u.setPassword(rs.getString("password"));
+    		    	u.setName(rs.getString("name"));
+    		    	u.setGender(rs.getString("gender"));
+    		    	u.setContact(rs.getString("contact"));
+    		    	u.setLastName(rs.getString("lastname"));
+    		    	 
     		    	users.add(u);
     		    	}
+    		    return users;
     		 }
     		 catch (Exception e){
     			e.printStackTrace();
