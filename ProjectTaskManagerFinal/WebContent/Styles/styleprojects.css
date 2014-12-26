@@ -328,6 +328,71 @@ height: 100px;
 
 select#sel {
 width: 300px;
-height: 300px;
+height: 200px;
 border-radius: 6px;
+}
+
+form#list_tasks {
+margin-left: 1px;
+margin-top: 14px;
+}
+
+#list_tasks input[type="button"] {
+	width: 11%;
+	height: 30px;
+	margin-top: 7px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 0px -1px 0px #5BDC7F;
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, .49);
+
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+	border-radius: 6px;
+
+	background-color: #5BDC7F;
+	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F100%);
+	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F100%);
+	background-image: -o-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F100%);
+	background-image: -ms-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F100%);
+	background-image: linear-gradient(bottom, #5BDC7F 0%, #5BDC7F100%);
+	
+	-webkit-box-shadow: inset 0px 1px 0px #9ab1ec;
+	box-shadow: inset 0px 1px 0px #9ab1ec;
+	
+	cursor: pointer;
+
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+	-ms-transition: all .1s ease-in-out;
+	transition: all .1s ease-in-out;
+}
+
+#list_tasks input[type="button"]:hover {
+	background-color: #5BDC7F;
+	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
+	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
+	background-image: -o-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
+	background-image: -ms-linear-gradient(bottom, #5BDC7F 0%, #white 100%);
+	background-image: linear-gradient(bottom, #5BDC7F 0%, #white 100%);
+
+	-webkit-box-shadow: inset 0px 1px 0px #aab9f4;
+	box-shadow: inset 0px 1px 0px #aab9f4;
+	margin-top: 10px;
+}
+
+#list_tasks input[type="button"]:active {
+	background-color: #5BDC7F;
+	background-image: -webkit-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
+	background-image: -moz-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
+	background-image: -o-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
+	background-image: -ms-linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
+	background-image: linear-gradient(bottom, #5BDC7F 0%, #5BDC7F 100%);
+
+	-webkit-box-shadow: inset 0px 1px 0px #93a9e9;
+	box-shadow: inset 0px 1px 0px #93a9e9;
 }

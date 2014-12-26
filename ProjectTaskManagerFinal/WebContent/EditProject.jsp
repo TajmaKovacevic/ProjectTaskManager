@@ -15,9 +15,9 @@
         <form id="list_project"  action="AddProject">
         <label for="pname" id="plbl">Projects &nbsp</label><br><br>  
 		<select size="3"	name="decision2" multiple id="sel">
-		<option selected>Project1
-		<option>Project2
-		<option>Project3
+		<option selected>Project1</option>
+		<option>Project2</option>
+		<option>Project3</option>
 		</select>
         </form> 
 </div>
@@ -47,5 +47,18 @@
         <br/><input type="submit" value="Save changes">
         </form>
  </div>
+ 
+ <div id="taskdiv">
+        <form id="list_tasks"  action="AddProject">
+        <label for="tname" id="tlbl">Tasks &nbsp</label><br><br>  
+		<select size="3"	name="decision2" multiple id="sel">
+		<option selected>Task1</option>
+		<option>Task2</option>
+		<option>Task3</option>
+		</select>
+		<br/><input type="button" id="addt" value="Add new task" onClick="location.href='AddTask.jsp'">&nbsp;
+		<input type="button" id="editt" value="Show task" onClick="location.href='EditTask.jsp'">
+        </form> 
+</div>
 </body>
 </html>

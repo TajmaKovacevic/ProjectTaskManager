@@ -5,3 +5,7 @@ function goToIndex(){
 function goToTeams(){
 	window.location = 'TeamManager.jsp';
 }
+
+function goToProjects(){
+	window.location = 'Projects.jsp';
+}

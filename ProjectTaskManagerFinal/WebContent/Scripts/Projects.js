@@ -71,3 +71,11 @@ var contentDivs = new Array();
       	
       window.location='Administration.jsp';
       }
+      
+      function goToCreateNewTask(){
+          window.location = 'AddTask.jsp';
+         }
+      
+      function goToEditTask(){
+          window.location = 'EditTask.jsp';
+         }

@@ -10,7 +10,7 @@
 <script type="text/javascript" src="Scripts/Tasks.js"></script>
 </head>
 <body>
-<div>
+<!--div>
         <form id="list_task"  action="AddTask">
         <label for="pname" id="plbl">Tasks &nbsp</label><br><br>  
 		<select size="3"	name="decision2" multiple id="sel">
@@ -19,7 +19,7 @@
 		<option>Task3
 		</select>
         </form> 
-      </div>
+      </div-->
       
  <div id="add">
         <form id="add_task"  action="AddTask">
