@@ -15,11 +15,13 @@
 <h2 id="welcomeMessage">Welcome <%=session.getAttribute("uid")%>!</h2>
 </div>
 <p id="mainTitle">Work on your Tasks<p/>
-<div id="buttonHolder">
 
-	 
+<div id="buttonHolder">
+	 <p id="view-taskinf">View tasks informations<p/>
+	 <div id="arrow">&#8600;</div>
+  <a href="#" class="button previewTaskinf" onclick="goToTaskInf()"></a>
 </div>
 
-  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
+<button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
 </body>
 </html>

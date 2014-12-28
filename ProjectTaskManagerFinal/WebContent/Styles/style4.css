@@ -1,0 +1,245 @@
+html, body{
+  min-height:100%;
+}
+
+body{
+  		background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
+			background-image: linear-gradient(top, #edecec, #cecbc9);
+}
+
+#buttonHolder{
+
+  margin-top: 4%;
+margin-left: 35%;
+}
+
+
+		.button{
+			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+			background-image: linear-gradient(top, #f4f1ee, #fff);
+			border-radius: 50%;
+			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+			float:left;
+			height: 130px;
+			margin: 0 30px 30px 0;
+			position: relative;
+			width: 130px;			
+			-webkit-transition: all .1s linear;
+			transition: all .1s linear;
+		}
+		
+	.button_preview{
+			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+			background-image: linear-gradient(top, #f4f1ee, #fff);
+			border-radius: 50%;
+			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+			height: 130px;
+			margin: 0 30px 30px 0;
+			width: 130px;			
+			-webkit-transition: all .1s linear;
+			transition: all .1s linear;
+		}
+		.button:after{
+			color:#72CD8F;
+			content: "";
+			display: block;
+			font-size: 30px;
+			height: 30px;
+			text-decoration: none;
+			text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+			position: absolute;
+			width: 30px;
+		}
+
+.button_create :after{
+			color:#72CD8F;
+			content: "";
+			display: block;
+			font-size: 30px;
+			height: 30px;
+			text-decoration: none;
+			text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+			position: absolute;
+			width: 30px;
+		}
+		.button_preview:after{
+			color:#72CD8F;
+			content: "";
+			display: block;
+			font-size: 30px;
+			height: 30px;
+			text-decoration: none;
+			text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+			position: absolute;
+			width: 30px;
+		}
+		
+		.previewTaskinf{
+		margin-top: -5%;
+		}
+		
+		.heart:after{
+			content: "Projects";
+			left: 21px;
+			top: 45px;
+		}
+
+
+
+		.tick:after{
+		content: "Persons";
+			left:23px;
+			top:45px;
+			
+		}
+
+		.cross:after{
+		content: "Teams";
+			left: 24px;
+			top: 45px;
+		}
+		
+		
+       .previewTaskinf:after{
+			content: "Preview";
+			left: 21px;
+			top: 45px;
+		}
+
+		.button:hover{
+			background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+			background-image: linear-gradient(top, #fff, #f4f1ee);
+			color:#0088cc;
+		}
+
+		.heart:hover:after{
+			color:#2C61EC;
+			text-shadow:0px 0px 6px #f94e66;
+		}
+     
+		.previewTaskinf:hover:after{
+			color:#2C61EC;
+			text-shadow:0px 0px 6px #f94e66;
+		}
+		
+		
+		
+		.flower:hover:after{
+			color:#f99e4e;
+			text-shadow:0px 0px 6px #f99e4e;
+		}
+
+		.tick:hover:after{
+			color:#83d244;
+			text-shadow:0px 0px 6px #83d244;
+		}
+
+		.cross:hover:after{
+			color:#eb2f2f;
+			text-shadow:0px 0px 6px #eb2f2f;
+		}
+	
+		.button:active{
+			background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+			background-image: linear-gradient(top, #efedec, #f7f4f4);
+			box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+		}
+
+		.button:active:after{
+			color:#dbd2d2;
+			text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+		}
+#welcomeMessage{
+
+font-family: 'proxima_nova_ltlight', sans-serif;
+font-weight: normal;
+font-size: 25px;
+line-height: 46px;
+color: #5BDC7F;
+text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+margin-left: 10%;
+}
+
+#menuButton{
+float:right;
+	}
+
+	#mainTitle{
+	font-family: 'proxima_nova_ltlight', sans-serif;
+font-weight: normal;
+font-size: 32px;
+line-height: 46px;
+color: #9D9DA3;
+text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+margin-left:35%;
+	}
+
+	#mainTitle_manager{
+	font-family: 'proxima_nova_ltlight', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	line-height: 46px;
+	color: #9D9DA3;
+	text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+	margin-left:30%;
+	margin-top: -7%;
+	}
+	
+	#manager_createTeam{
+	font-family: 'proxima_nova_ltlight', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	line-height: 46px;
+	color: #9D9DA3;
+	text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+	margin-left:-30%;
+	}
+	
+.exit-btn-3 {
+
+background-color: #F8F8F8;
+background-image: url("http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/inside-logout-icon.png ");
+background-size: 30px 30px;
+background-repeat: no-repeat;
+color: #585858;
+border-radius: 7px;
+box-shadow: 0 5px #9D9DA3;
+padding: 5px 5px 10px 35px;
+position: fixed;
+bottom: 530px;
+right: 30px;
+
+}
+
+.exit-btn-3:before {
+position: absolute;
+left: 0;
+width: 40;
+font-size: 160%;
+line-height: 0.8;
+color: #fff;
+font-family: 'Glyphicons Halflings';
+}
+
+#view-taskinf{
+font-family: 'proxima_nova_ltlight', sans-serif;
+font-weight: normal;
+font-size: 32px;
+line-height: 46px;
+color: #9D9DA3;
+text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
+margin-left: -30%;
+	}
+	
+	#arrow{
+	color: rgb(37, 178, 66);
+font-size: 70px;
+margin-left: -15%;
+margin-top: -6%;
+	}
+#arrow-right{
+	color: rgb(37, 178, 66);
+font-size: 70px;
+margin-top: -5%;
+margin-left: 28%;
+	}
