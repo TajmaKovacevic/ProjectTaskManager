@@ -8,7 +8,7 @@
 <meta name="description" content="slick Login">
 <meta name="author" content="Webdesigntuts+">
 <script type="text/javascript" src="Scripts/Developer.js"></script>
-<link rel="stylesheet" type="text/css" href="Styles/style2.css" />
+<link rel="stylesheet" type="text/css" href="Styles/styledeveloper.css" />
 </head>
 <body>
 <div>
@@ -17,9 +17,7 @@
 <p id="mainTitle">Work on your Tasks<p/>
 
 <div id="buttonHolder">
-	 <p id="view-taskinf">View tasks informations<p/>
-	 <div id="arrow">&#8600;</div>
-  <a href="#" class="button previewTaskinf" onclick="goToTaskInf()"></a>
+  <a href="#" class="button previewTasks" onclick="goToTaskInf()"></a>
 </div>
 
 <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
