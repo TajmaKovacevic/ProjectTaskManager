@@ -8,7 +8,7 @@
 <meta name="description" content="slick Login">
 <meta name="author" content="Webdesigntuts+">
 <script type="text/javascript" src="Scripts/Manager.js"></script>
-<link rel="stylesheet" type="text/css" href="Styles/style2.css" />
+<link rel="stylesheet" type="text/css" href="Styles/stylemanager.css" />
 </head>
 <body>
 <div>
