@@ -7,15 +7,19 @@ import java.sql.ResultSet;
 import java.util.List;
 import objects.User;
 import java.util.ArrayList;
+import java.sql.Statement;
 
 
 public class DBManager {
 	Connection connection;
     PreparedStatement statement;
+    Statement stmt;
+    ResultSet rs;
     
     public DBManager(){
     	connection=null;
     	statement=null;
+    	rs=null;
     }
     /*Opens the connection*/
     public boolean openConnection(){
@@ -133,6 +137,31 @@ public class DBManager {
     		return false;
     	}
     }
+    
+    
+    public boolean updateUser(String username, String password, String name,String lastname,String contact, String gender){
+    	if(openConnection()){
+    		 try{
+    			final String SQL_UPDATE = "UPDATE user SET name='name', lastname='lastname', contact='contact', gender='gender' where username='username' and password='password'";
+    			stmt=connection.createStatement();
+    	
+    		    stmt.executeUpdate(SQL_UPDATE);
+    			
+    		    return true;
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return false;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	else{
+    		return false;
+    	}
+    }
+    
     public boolean hasUserPermission(String username,int permisssion){
     	if(openConnection()){
    		 try{

@@ -11,7 +11,10 @@ window.location='Administration.jsp';
 function init(){
  alert("Person is succesefully added!");
 } 
-    
+  
+function init(){
+	 alert("Person is succesefully edited!");
+	} 
     function goToCreateNewPerson(){
         window.location = 'AddPerson.jsp';
        }

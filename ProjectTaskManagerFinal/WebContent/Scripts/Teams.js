@@ -16,6 +16,9 @@ window.location='Administration.jsp';
 
  function init() {
 
+	
+	 
+	 
       // Grab the tab links and content divs from the page
       var tabListItems = document.getElementById('tabs').childNodes;
       for ( var i = 0; i < tabListItems.length; i++ ) {

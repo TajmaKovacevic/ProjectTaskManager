@@ -23,7 +23,8 @@ Create a new Team
         <form id="add_person"  action="AddTeam" style="margin-left: 30%;
 margin-top: -0.5%;">
         <label for="teamname">Team name&nbsp</label><input type="text" name="teamname" class="placeholder" placeholder="teamname"><br><br>
-        <label for="teamleader">Team leader&nbsp</label><input type="text" name="teamleader" class="placeholder" placeholder="teamleader"><br><br>
+        <label for="teamleader">Team leader&nbsp</label><select id="persons"></select><br><br>
+    
          <label for="membernumber">Number of members&nbsp</label><input type="number"  id="membern" min="1" max="15" name="membernumber" class="placeholder" placeholder="membernumber"><br><br>
 		 
 			 

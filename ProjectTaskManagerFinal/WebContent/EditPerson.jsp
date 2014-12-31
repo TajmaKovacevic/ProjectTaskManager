@@ -48,7 +48,7 @@
 <body>
 
  <div>
-        <form id="list_person"  action="AddPerson">
+        <form id="list_person"  action="EditPerson">
         <label for="pname" id="plbl">Persons &nbsp;</label><br><br>  
 			
 	<%
@@ -83,7 +83,7 @@
       </div>
 
       <div>
-        <form id="edit_person"  action="EditPerson">
+        <form id="edit_person"  action="EditPerson" onsubmit="edit()">
         <label for="username">Username&nbsp;</label><input type="text" name="username" class="placeholder" placeholder="username" id="username_id"><br>
         <label for="password">Password&nbsp;</label><input type="text" name="password" class="placeholder" placeholder="password" id="password_id"><br>
         <label for="firstname">First name&nbsp;</label><input type="text" name="firstname" class="placeholder" placeholder="first name" id="firstname_id"><br>
