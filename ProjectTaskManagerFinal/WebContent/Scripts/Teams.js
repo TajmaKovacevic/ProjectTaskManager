@@ -61,22 +61,3 @@ function number(){
 	}
 }
 
-function changeFunc() {
-    var selectBox = document.getElementById("sel");
-    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-    
-    var parsedData = selectedValue;
-    var res = parsedData.split(",");
-    document.getElementById("username_id").setAttribute("value",  res[0].slice(2));
-    document.getElementById("password_id").setAttribute("value",  res[1]);
-    document.getElementById("firstname_id").setAttribute("value",  res[2]);
-    document.getElementById("lastname_id").setAttribute("value",  res[3]);
-    var gen=res[4].toLowerCase();
-    if(res[4]==" Male")
-    document.getElementById("genderm_id").checked = true;
-    else
-        document.getElementById("genderf_id").checked = true;
-
-    document.getElementById("email_id").setAttribute("value",  res[6].slice(0,-2));
-
-   }

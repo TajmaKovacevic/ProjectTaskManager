@@ -29,6 +29,15 @@ public class AddTeam extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 DBManager db=new DBManager();
+		String team_name = request.getParameter("teamname");
+		 String teamleader = request.getParameter("teamleader");
+		 int number=Integer.parseInt(request.getParameter("membernumber"));
+		 
+		 String m1=request.getParameter("m1");
+		 m1=m1.substring(2);
+		 String[] niz=m1.split(",");
+		 m1=niz[0];
 		
 	}
 

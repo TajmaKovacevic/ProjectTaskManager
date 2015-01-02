@@ -24,6 +24,6 @@
   <a href="#" class="button previewTeam" onclick="goToPreviewTems()"></a>
 	 
 </div>
-  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
+  <button class="exit-btn-34" type="button" onclick="goToIndex()">Logout</button>
 </body>
 </html>

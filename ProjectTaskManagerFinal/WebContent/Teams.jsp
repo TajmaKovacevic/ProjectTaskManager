@@ -29,13 +29,14 @@
 	DBManager db=new DBManager();
 	ArrayList<User> users=db.getUsers();
 %>
-
+ <button class="exit-btn-34" type="button" onclick="goToIndex()" >Logout</button>
         <form id="add_team"  action="AddTeam">
         <div id="createTeam" >Create a new Team</div>
         <div id="result">
-        <label for="teamname">Team name&nbsp</label><input type="text" name="teamname" class="placeholder" placeholder="team name"><br><br>
+        <label for="teamname">Team name&nbsp</label>
+        <input type="text" name="teamname" class="placeholder" placeholder="team name"><br><br>
         <label for="teamleader">Team leader&nbsp</label>
-        <select id="teamleader" onchange="changeFunc();">
+        <select name="teamleader" id="teamleader">
         <% for (int i =0; i < users.size(); i++) { 
 	
 	String name=users.get(i).getName();
@@ -64,7 +65,7 @@
         </div>
         <div id="add_members">Choose team members</div>
         <div id="members_of_team">
-        <select class="newDropdownMenu" id="newDropdownMenu1" style="display:none">
+        <select name="m1" class="newDropdownMenu" id="newDropdownMenu1" style="display:none">
           <% for (int i =0; i < users.size(); i++) { 
 	
 	String name=users.get(i).getName();
@@ -86,7 +87,7 @@
     <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
 <%} %>
         </select>
-        <select class="newDropdownMenu" id="newDropdownMenu2" style="display:none">
+        <select name="m2" class="newDropdownMenu" id="newDropdownMenu2" style="display:none">
           <% for (int i =0; i < users.size(); i++) { 
 	
 	String name=users.get(i).getName();
@@ -108,7 +109,7 @@
     <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
 <%} %>
         </select>
-        <select class="newDropdownMenu" id="newDropdownMenu3" style="display:none">
+        <select name="m3" class="newDropdownMenu" id="newDropdownMenu3" style="display:none">
           <% for (int i =0; i < users.size(); i++) { 
 	
 	String name=users.get(i).getName();
@@ -130,7 +131,7 @@
     <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
 <%} %>
         </select>
-        <select class="newDropdownMenu" id="newDropdownMenu4" style="display:none">
+        <select name="m4" class="newDropdownMenu" id="newDropdownMenu4" style="display:none">
           <% for (int i =0; i < users.size(); i++) { 
 	
 	String name=users.get(i).getName();
@@ -152,7 +153,7 @@
     <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
 <%} %>
         </select>
-        <select class="newDropdownMenu" id="newDropdownMenu5" style="display:none">
+        <select name="m5" class="newDropdownMenu" id="newDropdownMenu5" style="display:none">
           <% for (int i =0; i < users.size(); i++) { 
 	
 	String name=users.get(i).getName();
@@ -177,7 +178,7 @@
         </div>
        
         </form>
-        
+
 </body>
 </html>
 
