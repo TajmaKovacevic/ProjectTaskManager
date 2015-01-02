@@ -21,6 +21,12 @@
         <label for="gender">Gender&nbsp;</label><input type="radio" name="gender" value="Male" class="placeholder" placeholder="gender">Male&nbsp;&nbsp;
         <input type="radio" name="gender" value="Female" class="placeholder" placeholder="gender">Female<br/>
         <label for="email">E-mail&nbsp;</label><input type="email" name="email" class="placeholder" placeholder="email"><br>
+         <label for="role">Role</label>
+         <select id="selectRole" name="role">
+		<option value="1" selected>Administrator
+		<option value="2">Manager
+		<option value="3">Developer
+		</select><br>
         <br/><input type="submit" value="Add new person">
         </form>
       </div>

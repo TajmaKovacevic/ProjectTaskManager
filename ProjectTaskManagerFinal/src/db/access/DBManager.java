@@ -194,6 +194,65 @@ public class DBManager {
    	}
     	
     }
+    
+    
+    public int getUserID(){ 
+    	
+    	if(openConnection()){
+      		 try{
+      			int userID=0;
+      			
+      			final String SQL_SELECT = "SELECT id FROM user ORDER BY id DESC LIMIT 1";
+      			statement=connection.prepareStatement(SQL_SELECT);
+      		    ResultSet rs=statement.executeQuery();
+      		  while(rs.next())
+	            {
+ 		    	userID=rs.getInt("id");
+	            }
+      		  	return userID;
+      		 }
+      		catch (Exception e){
+       			e.printStackTrace();
+    	            return 5;//false
+       		 	}
+       		 finally{
+       			 closeConnection();
+       		 }    		 
+       	}
+       	else{
+       		return 5; //false
+       	}
     }
     
+    public boolean insertUserRole(int userID, int roleID){
+    	if(openConnection()){
+    		 try{
+    			final String SQL_INSERT = "INSERT INTO userpermission (User_id, Permission_id) VALUES (?, ?)";
+    			statement=connection.prepareStatement(SQL_INSERT);
+    			statement.setInt(1, userID);
+    		    statement.setInt(2, roleID);
+    		    
+    		    statement.executeUpdate();
+    		    return true;
+    		    
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return false;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	else{
+    		return false;
+    	}
+    }
+    
+    
+    
+    
+    }
+    
+
 

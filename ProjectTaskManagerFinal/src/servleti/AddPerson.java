@@ -35,11 +35,14 @@ public class AddPerson extends HttpServlet {
 		 String lastname=request.getParameter("lastname");
 		 String gender=request.getParameter("gender");
 		 String email=request.getParameter("email");
+		 String role=request.getParameter("role");
 		 DBManager db=new DBManager();
 		 HttpSession session = request.getSession();
 
 		 if(db.insertUser(username, password, firstname, lastname, email, gender))
 		 {
+			 int _id=db.getUserID(); //id from last inserted user
+			 db.insertUserRole(_id, Integer.parseInt(role));
 			 session.setAttribute("getAlert", "Yes");
 			 response.sendRedirect("AddPerson.jsp");
 			
