@@ -12,9 +12,7 @@ function init(){
  alert("Person is succesefully added!");
 } 
   
-function init(){
-	 alert("Person is succesefully added!");
-	} 
+
     function goToCreateNewPerson(){
         window.location = 'AddPerson.jsp';
        }

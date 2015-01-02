@@ -94,9 +94,11 @@ public class DBManager {
     		    	u.setGender(rs.getString("gender"));
     		    	u.setContact(rs.getString("contact"));
     		    	u.setLastName(rs.getString("lastname"));
+    		    	
     		    	 
     		    	users.add(u);
     		    	}
+    		    
     		    return users;
     		 }
     		 catch (Exception e){
@@ -224,13 +226,47 @@ public class DBManager {
        	}
     }
     
+    
+  public int getUserIDbyName(String first_name, String last_name){ 
+    	
+    	if(openConnection()){
+      		 try{
+      			int userID=0;
+      			
+      			final String SQL_SELECT = "SELECT id FROM user WHERE name=? and lastname=?";
+      			statement=connection.prepareStatement(SQL_SELECT);
+      			statement.setString(1, first_name);
+      			statement.setString(2, last_name);
+      		    ResultSet rs=statement.executeQuery();
+      		  while(rs.next())
+	            {
+ 		    	userID=rs.getInt("id");
+	            }
+      		  	return userID;
+      		 }
+      		catch (Exception e){
+       			e.printStackTrace();
+    	            return 5;//false
+       		 	}
+       		 finally{
+       			 closeConnection();
+       		 }    		 
+       	}
+       	else{
+       		return 5; //false
+       	}
+    }
+    
+    
     public boolean insertUserRole(int userID, int roleID){
     	if(openConnection()){
     		 try{
+    			
+    		    
     			final String SQL_INSERT = "INSERT INTO userpermission (User_id, Permission_id) VALUES (?, ?)";
     			statement=connection.prepareStatement(SQL_INSERT);
     			statement.setInt(1, userID);
-    		    statement.setInt(2, roleID);
+    			statement.setInt(2, roleID);
     		    
     		    statement.executeUpdate();
     		    return true;
@@ -247,6 +283,42 @@ public class DBManager {
     	else{
     		return false;
     	}
+    	 }
+    
+    
+    	public int getUserRole(String first_name, String last_name){
+    		
+        	if(openConnection()){
+        		 try{
+        		    int roleID=0;
+        			int userID=getUserIDbyName(first_name, last_name);
+        			
+        		
+        			openConnection();
+        			final String SQL_SELECT = "SELECT Permission_id  FROM userpermission WHERE User_id=? ";
+        			statement=connection.prepareStatement(SQL_SELECT);
+        			statement.setInt(1, userID);
+        			ResultSet rs=statement.executeQuery();
+            		  while(rs.next())
+      	            {
+       		    	 roleID=rs.getInt("Permission_id");
+      	            }
+            		  	return roleID;
+        		    
+        		 }
+        		 catch (Exception e){
+        			e.printStackTrace();
+     	            return 10;//false
+        		 	}
+        		 finally{
+        			 closeConnection();
+        		 }    		 
+        	}
+        	else{
+        		return 10; //false
+        	}
+    	
+    	
     }
     
     

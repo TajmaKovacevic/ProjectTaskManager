@@ -10,6 +10,7 @@ public class User {
  private String gender;
  private String email;
  
+ 
 public void setUsername(String username) {
 	this.username = username;
 }
@@ -53,5 +54,6 @@ public void setEmail(String email) {
 public String getEmail() {
 	return email;
 }
+
 
 };

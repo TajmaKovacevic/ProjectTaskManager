@@ -42,8 +42,14 @@
     else
         document.getElementById("genderf_id").checked = true;
 
-    document.getElementById("email_id").setAttribute("value",  res[6].slice(0,-2));
-
+    document.getElementById("email_id").setAttribute("value",  res[7].slice(0,-2));
+   if(res[7].slice(0,-2)==" 2")
+   document.getElementById("selectRole").value="2";
+   else if(res[7].slice(0,-2)==" 1")
+   document.getElementById("selectRole").value="1";
+   else 
+   document.getElementById("selectRole").value="3"; 
+ 
    }
 
   </script>
@@ -61,6 +67,7 @@
 	ArrayList<User> users=db.getUsers();
 	
 	
+	
 %>
 <select name="decision2" multiple id="sel"  onchange="changeFunc();">
 <% for (int i =0; i < users.size(); i++) { 
@@ -72,6 +79,8 @@
 	String contact=users.get(i).getContact();
 	String email=users.get(i).getContact();
 	String gender=users.get(i).getGender();
+	int userRole=db.getUserRole(name,lastName);
+	//String role=users.get(i)
 	List<String> someList = new ArrayList<String>();
 	someList.add(0,username);
 	someList.add(1,password);
@@ -80,6 +89,9 @@
 	someList.add(4,gender);
 	someList.add(5,contact);
 	someList.add(6,email);
+	String ur=Integer.toString(userRole);
+	someList.add(7, ur);
+	
 	%>
     <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
 <%} %>
@@ -96,7 +108,15 @@
         <label for="gender">Gender&nbsp;</label><input type="radio" name="gender" value="Male" class="placeholder" placeholder="gender" id="genderm_id">Male&nbsp;&nbsp;
         <input type="radio" name="gender" value="Female" class="placeholder" placeholder="gender" id="genderf_id">Female<br>
         <label for="email">E-mail&nbsp;</label><input type="email" name="email" class="placeholder" placeholder="email" id="email_id"><br>
-        <input type="submit" value="Save changes">
+      
+        <label for="role">Role</label>
+         <select id="selectRole" name="role">
+		<option value="1">Administrator
+		<option value="2">Manager
+		<option value="3">Developer
+		</select><br> <br>
+		  <input type="submit" value="Save changes">
+		 
         </form>
        
       </div>
