@@ -11,7 +11,7 @@
 </head>
 
 <body >
-
+<div id="createperson" >Insert a new person</div>
  <div id="add">
         <form id="add_person"  action="AddPerson" onsubmit="init()">
         <label for="username">Username&nbsp;</label><input type="text" id="username" name="username" class="placeholder" placeholder="username" onblur="validateUsername()">

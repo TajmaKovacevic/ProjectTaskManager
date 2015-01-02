@@ -8,6 +8,9 @@ function goToAdministration()
 window.location='Administration.jsp';
 }
 
+function goToIndex(){
+	window.location = 'index.jsp';
+}
 function init(){
  alert("Person is succesefully added!");
 } 

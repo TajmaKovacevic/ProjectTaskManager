@@ -1,108 +1,183 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.sun.xml.internal.txw2.Document"%><html>
+<%@page import="java.io.IOException" %>
+<%@page import="java.io.PrintWriter" %>
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="javax.servlet.ServletException" %>
+<%@page import="javax.servlet.http.HttpServlet" %>
+<%@page import="javax.servlet.http.HttpServletRequest" %>
+<%@page import="javax.servlet.http.HttpServletResponse" %>
+<%@page import="java.util.List" %>
+<%@page import="db.access.DBManager" %>
+<%@page import="objects.User" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Styles/styleteams.css" />
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
 <script type="text/javascript" src="Scripts/Teams.js"></script>
 <title>Teams</title>
 </head>
+<body>
+	<%
+	DBManager db=new DBManager();
+	ArrayList<User> users=db.getUsers();
+%>
 
-<body onload="init()">
-
-<div id="createTeam" style="
-    font-family: 'proxima_nova_ltlight', sans-serif;  font-weight: normal;  font-size: 32px;  line-height: 46px;  color: #9D9DA3;  text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);  
-    margin-left: 10%;  margin-top: 3%;
-">
-Create a new Team
-</div>
-      <div id="result">
-        <form id="add_person"  action="AddTeam" style="margin-left: 30%;
-margin-top: -0.5%;">
-        <label for="teamname">Team name&nbsp</label><input type="text" name="teamname" class="placeholder" placeholder="teamname"><br><br>
-        <label for="teamleader">Team leader&nbsp</label><select id="persons"></select><br><br>
-    
-         <label for="membernumber">Number of members&nbsp</label><input type="number"  id="membern" min="1" max="15" name="membernumber" class="placeholder" placeholder="membernumber"><br><br>
-		 
-			 
-		 
-		 <script type="text/javascript">
-		  
-		 
-		 var n = document.getElementById("membern");
-		 var   r = document.getElementById("add_person");
-		 //alert(i);
-		 var i=0;
-		n.addEventListener("blur", function(e) {
-		 i=document.getElementById("membern").value;	
-   	
-   	   var whereToPut = document.getElementById('add_person');
-   	   
-   	var newDiv = document.createElement("div"); 
-	  var newContent = document.createTextNode("Choose members:"); 
-	  newDiv.appendChild(newContent); //add the text node to the newly created div. 
-    newDiv.setAttribute('id',"Chmbrs");
-	  // add the newly created element and its content into the DOM 
-	  whereToPut.appendChild(newDiv);
-	  
-   	   
-   	   
-   	   for(j=0; j<i; j++){
-       var newDropdown = document.createElement('select');
-       newDropdown.setAttribute('id',"newDropdownMenu");
-       newDropdown.setAttribute('class', "placeholder");
-      // newDropdown.insertAfter(select,submit);
-       whereToPut.appendChild(newDropdown);
-
-      
-       /*var itemLabel = document.createElement("Label");
-       itemLabel.setAttribute("for", newDropdownMenu);
-       itemLabel.innerHTML = "Member "+(j+1);
-       whereToPut.appendChild(itemLabel);
-    // newDropdown.insertBefore(itemLabel, select);
-           //Add an option called "Nadina"
-  */
-           
-           
-           var optionApple=document.createElement("option");
-           optionApple.text="Nadina";
-           
-           newDropdown.add(optionApple,newDropdown.options[null]);
-           
-               
-           //Add an option called "Melika"
-           var optionBanana=document.createElement("option");
-           optionBanana.text="Melika";
-           newDropdown.add(optionBanana,newDropdown.options[null]);
-           r.innerHTML+="<br><br><br>";
-          
+        <form id="add_team"  action="AddTeam">
+        <div id="createTeam" >Create a new Team</div>
+        <div id="result">
+        <label for="teamname">Team name&nbsp</label><input type="text" name="teamname" class="placeholder" placeholder="team name"><br><br>
+        <label for="teamleader">Team leader&nbsp</label>
+        <select id="teamleader" onchange="changeFunc();">
+        <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+        <br><br>
+        <label for="membernumber">Number of members&nbsp</label>
+        <input type="number" onchange="number()" id="member_number" min="1" max="5" name="membernumber" class="placeholder" placeholder="number of members"><br><br>	 
+        <input type="submit" value="Add new team">
+        </div>
+        <div id="add_members">Choose team members</div>
+        <div id="members_of_team">
+        <select class="newDropdownMenu" id="newDropdownMenu1" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+        <select class="newDropdownMenu" id="newDropdownMenu2" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+        <select class="newDropdownMenu" id="newDropdownMenu3" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+        <select class="newDropdownMenu" id="newDropdownMenu4" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+        <select class="newDropdownMenu" id="newDropdownMenu5" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+        </div>
        
-           
-   	   }
-   		
-   	 var saveButton=document.createElement('input');                     //creating the submit button which when clicked will save the value written in the textboxes
-     saveButton.type="submit";
-     saveButton.name="submitButton";
-     saveButton.value="Add new team";
-     r.appendChild(saveButton);
-   	   
-		}, false);
-		</script> 
-
-		
-
         </form>
-       
-      </div>
-
-
- <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
-   <button class="home-btn" type="button" onclick="goToAdministration()">Home</button>
-
-
+        
 </body>
 </html>
 

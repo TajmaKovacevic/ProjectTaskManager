@@ -24,6 +24,6 @@
   <a href="#" class="button previewPerson" onclick="goToPreviewPersons()"></a>
   
 </div>
-  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
+  <button class="exit-btn-3" type="button" onclick="goToIndex()" style="margin-top:-22%">Logout</button>
 </body>
 </html>

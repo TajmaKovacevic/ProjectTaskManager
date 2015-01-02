@@ -12,120 +12,71 @@ function goToAdministration()
 window.location='Administration.jsp';
 }
 
+function number(){
 
-
- function init() {
-
+	var numbers=document.getElementById("member_number").value;
 	
-	 
-	 
-      // Grab the tab links and content divs from the page
-      var tabListItems = document.getElementById('tabs').childNodes;
-      for ( var i = 0; i < tabListItems.length; i++ ) {
-        if ( tabListItems[i].nodeName == "LI" ) {
-          var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
-          var id = getHash( tabLink.getAttribute('href') );
-          tabLinks[id] = tabLink;
-          contentDivs[id] = document.getElementById( id );
-       }
+	if(numbers>5){
+		alert("Maximum team members is 5!");
+		
+	}
+	else{
+		document.getElementById("members_of_team").style.display="block";
+		document.getElementById("add_members").style.display="block";
+		if(numbers==1){
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="none";
+			document.getElementById("newDropdownMenu3").style.display="none";
+			document.getElementById("newDropdownMenu4").style.display="none";
+			document.getElementById("newDropdownMenu5").style.display="none";
+		}
+		if(numbers==2){
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="none";
+			document.getElementById("newDropdownMenu4").style.display="none";
+			document.getElementById("newDropdownMenu5").style.display="none";
+		}
+		if(numbers==3){
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="block";
+			document.getElementById("newDropdownMenu4").style.display="none";
+			document.getElementById("newDropdownMenu5").style.display="none"
+		}
+		if(numbers==4){
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="block";
+			document.getElementById("newDropdownMenu4").style.display="block";
+			document.getElementById("newDropdownMenu5").style.display="none"
+		}
+		if(numbers==5){
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="block";
+			document.getElementById("newDropdownMenu4").style.display="block";
+			document.getElementById("newDropdownMenu5").style.display="block";
+		}
+	}
 }
 
- var i = 0;
-
-      for ( var id in tabLinks ) {
-        tabLinks[id].onclick = showTab;
-        tabLinks[id].onfocus = function() { this.blur(); };
-        if ( i == 0 ) tabLinks[id].className = 'selected';
-        i++;
-      }
-	  
-	   var i = 0;
-
-      for ( var id in contentDivs ) {
-        if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
-        i++;
-      }
-    }
-
-    function showTab() {
-      var selectedId = getHash( this.getAttribute('href') );
-
-      // Highlight the selected tab, and dim all others.
-      // Also show the selected content div, and hide all others.
-      for ( var id in contentDivs ) {
-        if ( id == selectedId ) {
-          tabLinks[id].className = 'selected';
-          contentDivs[id].className = 'tabContent';
-        } else {
-          tabLinks[id].className = '';
-          contentDivs[id].className = 'tabContent hide';
-        }
-      }
-	      
-      return false;
-    }
-function getFirstChildWithTagName( element, tagName ) {
-      for ( var i = 0; i < element.childNodes.length; i++ ) {
-        if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
-      }
-    }
-
-    function getHash( url ) {
-      var hashPos = url.lastIndexOf ( '#' );
-      return url.substring( hashPos + 1 );
-    }
+function changeFunc() {
+    var selectBox = document.getElementById("sel");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     
-    
-    
-    function combobox(){
-    var n = document.getElementById("membern");
-	 var   r = document.getElementById("add_person");
-	 //alert(i);
-	 var i=0;
-	n.addEventListener("blur", function(e) {
-		 i=document.getElementById("membern").value;	
-		alert(i);
-	   var whereToPut = document.getElementById('add_person');
-	   for(j=0; j<i; j++){
-		   r.innerHTML+="Member "+(j+1);
-  var newDropdown = document.createElement('select');
-  newDropdown.setAttribute('id',"newDropdownMenu");
- // newDropdown.insertBefore(select,submit);
-  whereToPut.appendChild(newDropdown);
+    var parsedData = selectedValue;
+    var res = parsedData.split(",");
+    document.getElementById("username_id").setAttribute("value",  res[0].slice(2));
+    document.getElementById("password_id").setAttribute("value",  res[1]);
+    document.getElementById("firstname_id").setAttribute("value",  res[2]);
+    document.getElementById("lastname_id").setAttribute("value",  res[3]);
+    var gen=res[4].toLowerCase();
+    if(res[4]==" Male")
+    document.getElementById("genderm_id").checked = true;
+    else
+        document.getElementById("genderf_id").checked = true;
 
- /* var itemLabel = document.createElement("Label");
-  itemLabel.setAttribute("for", select);
-  itemLabel.innerHTML = "Member1: ";
-newDropdown.insertBefore(itemLabel, select);*/
-      //Add an option called "Nadina"
+    document.getElementById("email_id").setAttribute("value",  res[6].slice(0,-2));
 
-      
-      
-      var optionApple=document.createElement("option");
-      optionApple.text="Nadina";
-      newDropdown.add(optionApple,newDropdown.options[null]);
-      
-    
-             
-     
-      //Add an option called "Melika"
-      var optionBanana=document.createElement("option");
-      optionBanana.text="Melika";
-      newDropdown.add(optionBanana,newDropdown.options[null]);
-      r.innerHTML+="<br>"
-     
-  
-      
-	   }
-		
-	 var saveButton=document.createElement('input');                     //creating the submit button which when clicked will save the value written in the textboxes
-saveButton.type="submit";
-saveButton.name="submitButton";
-saveButton.value="Add new team";
-r.appendChild(saveButton);
-	   
-	}, false);}
-    
-    function bla(){ alert("bla");}
-    
-    
+   }

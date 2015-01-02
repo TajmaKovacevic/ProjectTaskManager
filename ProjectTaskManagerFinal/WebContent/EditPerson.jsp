@@ -120,5 +120,6 @@
         </form>
        
       </div>
+   <button class="exit-btn-34" type="button" onclick="goToIndex()" >Logout</button>    
 </body>
 </html>
