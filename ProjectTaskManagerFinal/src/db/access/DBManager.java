@@ -111,7 +111,73 @@ public class DBManager {
     	}
     	return null;
     }
+    public ArrayList<User> getFreeTeamLeaders(){
+    	if(openConnection()){
+    		 try{
+    			ArrayList<User> users=new ArrayList<User>();
+    			final String SQL_SELECT = "SELECT * FROM USER where USER.id NOT IN (SELECT DISTINCT team_lider FROM team)";
+    			statement=connection.prepareStatement(SQL_SELECT);
+    		    ResultSet rs=statement.executeQuery();
+    		    while(rs.next())
+	            {
+    		    	User u=new User();
+    		    	u.setUsername(rs.getString("username"));
+    		    	u.setPassword(rs.getString("password"));
+    		    	u.setName(rs.getString("name"));
+    		    	u.setGender(rs.getString("gender"));
+    		    	u.setContact(rs.getString("contact"));
+    		    	u.setLastName(rs.getString("lastname"));
+    		    	
+    		    	 
+    		    	users.add(u);
+    		    	}
+    		    
+    		    return users;
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return null;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	return null;
+    }
     
+    public ArrayList<User> getFreeUsers(){
+    	if(openConnection()){
+    		 try{
+    			ArrayList<User> users=new ArrayList<User>();
+    			final String SQL_SELECT = "SELECT * FROM USER where USER.id NOT IN (SELECT DISTINCT user_id FROM team_member)";
+    			statement=connection.prepareStatement(SQL_SELECT);
+    		    ResultSet rs=statement.executeQuery();
+    		    while(rs.next())
+	            {
+    		    	User u=new User();
+    		    	u.setUsername(rs.getString("username"));
+    		    	u.setPassword(rs.getString("password"));
+    		    	u.setName(rs.getString("name"));
+    		    	u.setGender(rs.getString("gender"));
+    		    	u.setContact(rs.getString("contact"));
+    		    	u.setLastName(rs.getString("lastname"));
+    		    	
+    		    	 
+    		    	users.add(u);
+    		    	}
+    		    
+    		    return users;
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return null;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	return null;
+    }
     public boolean insertUser(String username, String password, String name,String lastname,String contact, String gender){
     	if(openConnection()){
     		 try{
@@ -317,12 +383,95 @@ public class DBManager {
         	else{
         		return 10; //false
         	}
-    	
+
+        	
     	
     }
-    
-    
-    
+    	  public int insertTeam(String name, int teamleader){
+    	    	if(openConnection()){
+    	    		int team_id=0;
+    	    		 try{
+    	    			//System.out.println("prije inserta");
+    	    			final String SQL_INSERT = "INSERT INTO team (name, team_lider) VALUES (?, ?)";
+    	    			statement=connection.prepareStatement(SQL_INSERT);
+    	    			statement.setString(1, name);
+    	    		    statement.setInt(2, teamleader);
+    	    		    statement.executeUpdate();
+    	    		    ResultSet rs=statement.getGeneratedKeys();
+    	    		    if (rs.next()){
+    	    		        team_id=rs.getInt(1);
+    	    		    }
+    	    		    //System.out.println("prije inserta");
+    	    		    return team_id;
+    	    		    
+    	    		 }
+    	    		 catch (Exception e){
+    	    			e.printStackTrace();
+    	 	            return team_id;
+    	    		 	}
+    	    		 finally{
+    	    			 closeConnection();
+    	    		 }    		 
+    	    	}
+    	    	else{
+    	    		return 0;
+    	    	}
+    	    }
+    	  public boolean insertTeamMember(int team, int member){
+  	    	if(openConnection()){
+  	    		 try{
+  	    			final String SQL_INSERT = "INSERT INTO team_member (user_id, team_id) VALUES (?, ?)";
+  	    			//System.out.println("team"+team+"member"+member);
+  	    			
+  	    			statement=connection.prepareStatement(SQL_INSERT);
+  	    			statement.setInt(1, member);
+  	    		    statement.setInt(2, team);
+  	    		  
+  	    		    statement.executeUpdate();
+  	    		   //System.out.println("team"+team+"member"+member);
+  	    		    return true;
+  	    		    
+  	    		 }
+  	    		 catch (Exception e){
+  	    			e.printStackTrace();
+  	 	            return false;
+  	    		 	}
+  	    		 finally{
+  	    			 closeConnection();
+  	    		 }    		 
+  	    	}
+  	    	else{
+  	    		return false;
+  	    	}
+  	    }
+    	  public int getUserIdByUsername(String username){
+    		  if(openConnection()){
+    	      		 try{
+    	      			int userID=0;
+    	      			
+    	      			final String SQL_SELECT = "SELECT id FROM user WHERE username=?";
+    	      			statement=connection.prepareStatement(SQL_SELECT);
+    	      			statement.setString(1, username);
+    	      		    ResultSet rs=statement.executeQuery();
+    	      		  while(rs.next())
+    		            {
+    	 		    	userID=rs.getInt("id");
+    		            }
+    	      		//System.out.println(userID);
+    	      		  	return userID;
+    	      		 }
+    	      		catch (Exception e){
+    	       			e.printStackTrace();
+    	    	            return 0;//false
+    	       		 	}
+    	       		 finally{
+    	       			 closeConnection();
+    	       		 }    		 
+    	       	}
+    	       	else{
+    	       		return 0; //false
+    	       	}
+    	  }
     
     }
     
