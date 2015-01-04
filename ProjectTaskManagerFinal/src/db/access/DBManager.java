@@ -219,10 +219,7 @@ public class DBManager {
     			statement.setString(4, gender);
     			statement.setString(5, username);
     			statement.setString(6, password);
-    			
-    			
-    			
-    		    stmt.executeUpdate(SQL_UPDATE);
+       		    stmt.executeUpdate(SQL_UPDATE);
     			
     		    return true;
     		 }
@@ -396,15 +393,16 @@ public class DBManager {
         	
     	
     }
-    	  public int insertTeam(String name, int teamleader){
+    	  public int insertTeam(String name, int teamleader, int number_members){
     	    	if(openConnection()){
     	    		int team_id=0;
     	    		 try{
     	    			//System.out.println("prije inserta");
-    	    			final String SQL_INSERT = "INSERT INTO team (name, team_lider) VALUES (?, ?)";
+    	    			final String SQL_INSERT = "INSERT INTO team (name, team_lider, number_members ) VALUES (?, ?,?)";
     	    			statement=connection.prepareStatement(SQL_INSERT);
     	    			statement.setString(1, name);
     	    		    statement.setInt(2, teamleader);
+    	    		    statement.setInt(3, number_members);
     	    		    statement.executeUpdate();
     	    		    ResultSet rs=statement.getGeneratedKeys();
     	    		    if (rs.next()){

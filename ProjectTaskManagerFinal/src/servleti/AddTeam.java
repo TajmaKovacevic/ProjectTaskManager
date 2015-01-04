@@ -34,13 +34,14 @@ public class AddTeam extends HttpServlet {
 		 HttpSession session = request.getSession();
 		 String team_name = request.getParameter("teamname");
 		 String teamleader = request.getParameter("teamleader");
+		
 		 teamleader=teamleader.substring(2);
 		 String[] niz1=teamleader.split(",");
 		 teamleader=niz1[0]; 
 		 int teamleader_id=db.getUserIdByUsername(teamleader);
 		 int number=Integer.parseInt(request.getParameter("membernumber"));
 		 //System.out.println("broj clanova"+number);
-		 int team_id=db.insertTeam(team_name, teamleader_id);
+		 int team_id=db.insertTeam(team_name, teamleader_id, number);
 		 
 		 //System.out.println(team_id+"insertani team");
 		 if(number==1){
