@@ -22,7 +22,7 @@ function changeFunc() {
     else
         document.getElementById("genderf_id").checked = true;
 
-    document.getElementById("email_id").setAttribute("value",  res[7].slice(0,-2));
+    document.getElementById("email_id").setAttribute("value",  res[6]);
    if(res[7].slice(0,-2)==" 2")
    document.getElementById("selectRole").value="2";
    else if(res[7].slice(0,-2)==" 1")

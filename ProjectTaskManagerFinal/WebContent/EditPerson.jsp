@@ -26,7 +26,7 @@
 </head>
 <body>
  <div>
-        <form id="list_person"  action="EditPerson">
+        <form id="list_person" >
         <label for="pname" id="plbl">Persons &nbsp;</label><br><br>  
 			
 	<%
