@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+
+import objects.Team;
 import objects.User;
 import java.util.ArrayList;
 import java.sql.Statement;
@@ -424,6 +426,38 @@ public class DBManager {
     	    		return 0;
     	    	}
     	    }
+    	  
+    	  
+    	  public ArrayList<Team> getTeams(){
+    	    	if(openConnection()){
+    	    		 try{
+    	    			ArrayList<Team> teams=new ArrayList<Team>();
+    	    			final String SQL_SELECT = "SELECT * FROM team";
+    	    			statement=connection.prepareStatement(SQL_SELECT);
+    	    		    ResultSet rs=statement.executeQuery();
+    	    		    while(rs.next())
+    		            {
+    	    		    	Team t=new Team();
+    	    		    	t.setName(rs.getString("name"));
+    	    		    	t.setManage(rs.getString("team_lider"));
+    	    		    	t.setNumberMembers(rs.getInt("number_members"));
+    	    		    	teams.add(t);
+    	    		    }
+    	    		    
+    	    		    return teams;
+    	    		 }
+    	    		 catch (Exception e){
+    	    			e.printStackTrace();
+    	 	            return null;
+    	    		 	}
+    	    		 finally{
+    	    			 closeConnection();
+    	    		 }    		 
+    	    	}
+    	    	return null;
+    	    }
+    	  
+    	  
     	  public boolean insertTeamMember(int team, int member){
   	    	if(openConnection()){
   	    		 try{
