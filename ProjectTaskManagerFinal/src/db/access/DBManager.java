@@ -210,9 +210,18 @@ public class DBManager {
     public boolean updateUser(String username, String password, String name,String lastname,String contact, String gender){
     	if(openConnection()){
     		 try{
-    			final String SQL_UPDATE = "UPDATE user SET name='name', lastname='lastname', contact='contact', gender='gender' where username='username' and password='password'";
-    			stmt=connection.createStatement();
-    	
+    			final String SQL_UPDATE = "UPDATE user SET name=?, lastname=?, contact=?, gender=? where username=? and password=?";
+    			
+    			statement=connection.prepareStatement(SQL_UPDATE);
+    			statement.setString(1, name);
+    			statement.setString(2, lastname);
+    			statement.setString(3, contact);
+    			statement.setString(4, gender);
+    			statement.setString(5, username);
+    			statement.setString(6, password);
+    			
+    			
+    			
     		    stmt.executeUpdate(SQL_UPDATE);
     			
     		    return true;
