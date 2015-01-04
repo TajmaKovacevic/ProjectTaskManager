@@ -16,26 +16,7 @@ color: #868E8A;
 text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
 	}
 	
-#list_team input[type="select"]{
-	
-	
-width: 270px;
-height: 98px;
-border-left-width: 1px;
-border-radius: 8px;
-margin-left: 10%;
 
-	
-	}
-
-#sel {
-	width: 300px;
-height: 150px;
-border-left-width: 1px;
-border-radius: 8px;
-margin-left: 10%;
-	
-	}
 	
 #teamlbl {
 	
@@ -47,6 +28,16 @@ color: #5BDC7F;
 text-shadow: 0 1px 5px rgba(0, 1, 0, 0.3);
 margin-left: 15%;
 	}
+	
+	
+#selTeam{
+width: 300px;
+height: 150px;
+border-left-width: 1px;
+border-radius: 8px;
+margin-left: 10%;
+	
+	}	
 	
 #edit
 {

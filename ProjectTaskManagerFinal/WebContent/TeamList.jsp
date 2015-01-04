@@ -32,13 +32,7 @@
       <div id="list">
         <form id="list_team"  action="AddTeam">
         <label for="teamname" id="teamlbl">Teams &nbsp</label><br><br>  
-		<!--   <select size="3"	name="decision2" multiple id="sel">
-		<option selected>Team1
-		<option>Team 2
-		<option>Team 3
-		<option>Team 4
-		<option>Team 5
-		</select> -->
+	
 		
 		<%
 	DBManager db=new DBManager();
