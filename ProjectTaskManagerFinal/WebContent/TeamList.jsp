@@ -15,6 +15,7 @@
 <%@page import="java.util.List" %>
 <%@page import="db.access.DBManager" %>
 <%@page import="objects.Team" %>
+<%@page import="objects.User" %>
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
@@ -36,7 +37,8 @@
 		
 		<%
 	DBManager db=new DBManager();
-	ArrayList<Team> teams=db.getTeams();	
+	ArrayList<Team> teams=db.getTeams();
+	ArrayList<User> users=db.getUsers();
 	%>
     <select name="decisionTeam" multiple id="selTeam"  onchange="TeamFunc();">
      <% for (int i =0; i < teams.size(); i++) { 
@@ -57,7 +59,6 @@
 <%} %>
 </select>
        
-       
         </form>
        
       </div>
@@ -66,14 +67,147 @@
         <form id="edit_team"  action="EditTeam">
         <label for="teamname">Team name&nbsp</label><input type="text" name="teamname" class="placeholder" placeholder="teamname" id="team_name"><br><br>
         <label for="teamleader">Team leader&nbsp</label><input type="text" name="teamleader" class="placeholder" placeholder="teamleader" id="team_leader"><br><br>
-         <label for="membernumber">Number of members&nbsp</label><input type="number"  id="membern" min="1" max="15" name="membernumber" class="placeholder" placeholder="membernumber" ><br><br>
+         <label for="membernumber">Number of members&nbsp</label><input type="number"  id="membern" min="1" max="15" name="membernumber" class="placeholder" placeholder="membernumber"  onblur="number()" ><br><br>
 		 <input type="submit" value="Edit team"> 
+	
+	
+	
+	 
+	
+	  <div id="members_of_team">
+       <label for="teammembers" id="teammmb">Team-members &nbsp</label>
+       <select name="m1" class="newDropdownMenu" id="newDropdownMenu1"  style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select><br>
+        
+        <select name="m2" class="newDropdownMenu" id="newDropdownMenu2" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select><br>
+        
+        <select name="m3" class="newDropdownMenu" id="newDropdownMenu3" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select><br>
+        
+        <select name="m4" class="newDropdownMenu" id="newDropdownMenu4" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select><br>
+        
+        <select name="m5" class="newDropdownMenu" id="newDropdownMenu5" style="display:none">
+          <% for (int i =0; i < users.size(); i++) { 
+	
+	String name=users.get(i).getName();
+	String username=users.get(i).getUsername();
+	String password=users.get(i).getPassword();
+	String lastName=users.get(i).getLastName();
+	String contact=users.get(i).getContact();
+	String email=users.get(i).getContact();
+	String gender=users.get(i).getGender();
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,username);
+	someList.add(1,password);
+	someList.add(2,name);
+	someList.add(3,lastName);
+	someList.add(4,gender);
+	someList.add(5,contact);
+	someList.add(6,email);
+	%>
+    <option value=" <%= someList %> " ><%= users.get(i).getUsername() %></option>
+<%} %>
+        </select>
+       
+       
+       
+       </div>
+      
+	
+	 
+	
+	
+	
+	
 	
 		   </form>
        
       </div>
-
+<div id="divbtn">
   <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
    <button class="home-btn" type="button" onclick="goToAdministration()">Home</button>
+</div>
 </body>
 </html>

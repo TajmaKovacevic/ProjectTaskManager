@@ -6,7 +6,9 @@ function goToAdministration()
 {
 window.location='Administration.jsp';
 }
-
+function numberex(){
+alert("blaaa");
+}
 
 function TeamFunc() {
     var selectBox = document.getElementById("selTeam");
@@ -19,3 +21,60 @@ function TeamFunc() {
     document.getElementById("membern").setAttribute("value",  res[2].slice(1,-2));
     
    }
+
+
+
+function number(){
+
+	var numbers=document.getElementById("membern").value;
+	alert(numbers);
+	if(numbers>5){
+		//document.getElementById("sub1").disabled=true;
+		
+	}
+	else{
+		//document.getElementById("members_of_team").style.display="block";
+		//document.getElementById("add_members").style.display="block";
+		if(numbers==1){
+		//	document.getElementById("sub1").disabled=false;
+			;
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="none";
+			document.getElementById("newDropdownMenu3").style.display="none";
+			document.getElementById("newDropdownMenu4").style.display="none";
+			document.getElementById("newDropdownMenu5").style.display="none";
+		}
+		if(numbers==2){
+			//document.getElementById("sub1").disabled=false;
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="none";
+			document.getElementById("newDropdownMenu4").style.display="none";
+			document.getElementById("newDropdownMenu5").style.display="none";
+		}
+		if(numbers==3){
+			//document.getElementById("sub1").disabled=false;
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="block";
+			document.getElementById("newDropdownMenu4").style.display="none";
+			document.getElementById("newDropdownMenu5").style.display="none"
+		}
+		if(numbers==4){
+			//document.getElementById("sub1").disabled=false;
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="block";
+			document.getElementById("newDropdownMenu4").style.display="block";
+			document.getElementById("newDropdownMenu5").style.display="none"
+		}
+		if(numbers==5){
+			//document.getElementById("sub1").disabled=false;
+			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").style.display="block";
+			document.getElementById("newDropdownMenu4").style.display="block";
+			document.getElementById("newDropdownMenu5").style.display="block";
+		}
+	}
+}
