@@ -30,6 +30,10 @@
 
 <body onload="init()">
 
+  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
+   <button class="home-btn" type="button" onclick="goToAdministration()">Home</button>
+
+
       <div id="list">
         <form id="list_team"  action="AddTeam">
         <label for="teamname" id="teamlbl">Teams &nbsp</label><br><br>  
@@ -207,9 +211,6 @@
 		   </form>
        
       </div>
-<div id="divbtn">
-  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
-   <button class="home-btn" type="button" onclick="goToAdministration()">Home</button>
-</div>
+
 </body>
 </html>
