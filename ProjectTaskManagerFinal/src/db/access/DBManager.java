@@ -565,6 +565,75 @@ public class DBManager {
   	    }
     	  
     	  
+    	  
+    	  
+    	  public int getTeamIDbyName(String name){ 
+    	    	
+    	    	if(openConnection()){
+    	      		 try{
+    	      			int teamID=0;
+    	      			
+    	      			final String SQL_SELECT = "SELECT id FROM team WHERE name=? ";
+    	      			statement=connection.prepareStatement(SQL_SELECT);
+    	      			statement.setString(1, name);
+    	      			
+    	      		    ResultSet rs=statement.executeQuery();
+    	      		  while(rs.next())
+    		            {
+    	 		    	teamID=rs.getInt("id");
+    		            }
+    	      		  	return teamID;
+    	      		 }
+    	      		catch (Exception e){
+    	       			e.printStackTrace();
+    	    	            return 5;//false
+    	       		 	}
+    	       		 finally{
+    	       			 closeConnection();
+    	       		 }    		 
+    	       	}
+    	       	else{
+    	       		return 5; //false
+    	       	}
+    	    }
+    	  
+    	  
+    	  
+    	  public boolean insertProject(String name, int estimate, String desc, int m_id,int t_id){
+  	    	if(openConnection()){
+  	    		
+  	    		 try{
+  	    			
+  	    			//System.out.println("prije inserta");
+  	    			openConnection();
+  	    			final String SQL_INSERT = "INSERT INTO project (name, estimate, description, team_id, manager_id ) VALUES (?,?,?,?,?)";
+  	    			statement=connection.prepareStatement(SQL_INSERT);
+  	    			statement.setString(1, name);
+  	    		    statement.setInt(2, estimate);
+  	    		    statement.setString(3, desc);
+  	    		    statement.setInt(4, t_id);
+  	    		    statement.setInt(5, m_id);
+  	    		    statement.executeUpdate();
+  	    		    
+  	    		    
+  	    		    //System.out.println("prije inserta");
+  	    		    return true;
+  	    		    
+  	    		 }
+  	    		 catch (Exception e){
+  	    			e.printStackTrace();
+  	 	            return false;
+  	    		 	}
+  	    		 finally{
+  	    			 closeConnection();
+  	    		 }    		 
+  	    	}
+  	    	else{
+  	    		return false;
+  	    	}
+  	    }
+    	  
+    	  
     	  public boolean insertTeamMember(int team, int member){
   	    	if(openConnection()){
   	    		 try{
@@ -595,9 +664,11 @@ public class DBManager {
     	  public int getUserIdByUsername(String username){
     		  if(openConnection()){
     	      		 try{
+    	      			 
+    	      		    
     	      			int userID=0;
     	      			
-    	      			final String SQL_SELECT = "SELECT id FROM user WHERE username=?";
+    	      			final String SQL_SELECT = "SELECT id FROM user WHERE username=? ";
     	      			statement=connection.prepareStatement(SQL_SELECT);
     	      			statement.setString(1, username);
     	      		    ResultSet rs=statement.executeQuery();

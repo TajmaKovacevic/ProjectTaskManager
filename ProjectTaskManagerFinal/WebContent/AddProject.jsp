@@ -34,8 +34,8 @@
 %>
 
       <div id="add">
-        <form id="add_project"  action="AddProject">
-             <label for="project">Project name&nbsp;</label><input type="text" name="project" class="placeholder" placeholder="project name">
+        <form id="add_project"  action="AddProject" >
+         <label for="project">Project name&nbsp;</label><input type="text" name="project" class="placeholder" placeholder="project name">
         <label for="manager">Manager&nbsp;</label>
         <select name="manager" id="managersel">
         <% for (int i =0; i < managers.size(); i++) { 
@@ -56,12 +56,12 @@
 	someList.add(5,contact);
 	someList.add(6,email);
 	%>
-    <option value=" <%= someList %> " ><%= managers.get(i).getUsername() %></option>
+    <option value="<%=managers.get(i).getUsername()%>" ><%=managers.get(i).getUsername()%></option>
 <%} %>
   </select>
 		<br>
         <label for="team">Team&nbsp;</label>
-       <select name="teams" id="teamsel">
+       <select name="team" id="teamsel">
         <% for (int i =0; i < teams.size(); i++) { 
         	
         	
@@ -76,7 +76,7 @@
         	someList.add(2,Integer.toString(number));
 	
 	%>
-    <option value=" <%= someList %> " ><%= teams.get(i).getName() %></option>
+    <option value="<%=teams.get(i).getName()%>" ><%=teams.get(i).getName()%></option>
 <%} %>
   </select>
 		<br>
