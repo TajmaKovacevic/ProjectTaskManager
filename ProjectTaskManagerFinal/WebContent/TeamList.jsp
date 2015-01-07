@@ -69,7 +69,7 @@
         <label for="teamleader">Team leader&nbsp</label><input type="text" name="teamleader" class="placeholder" placeholder="teamleader" id="team_leader"><br><br>
          <label for="membernumber">Number of members&nbsp</label><input type="number"  id="membern" min="1" max="15" name="membernumber" class="placeholder" placeholder="membernumber"  onblur="number()" ><br><br>
 		 <input type="submit" value="Edit team"> 
-	
+	    <INPUT TYPE="HIDDEN" NAME="variableName" VaLUE="" id="variableName">
 	
 	
 	 
@@ -197,9 +197,11 @@
       
 	
 	 
+	 
+	<%
+	String var = request.getParameter("variableName");
 	
-	
-	
+	%>
 	
 	
 		   </form>

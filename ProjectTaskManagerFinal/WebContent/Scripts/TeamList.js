@@ -6,9 +6,7 @@ function goToAdministration()
 {
 window.location='Administration.jsp';
 }
-function numberex(){
-alert("blaaa");
-}
+
 
 function TeamFunc() {
     var selectBox = document.getElementById("selTeam");
@@ -19,7 +17,7 @@ function TeamFunc() {
     
     document.getElementById("team_leader").setAttribute("value",  res[1]);
     document.getElementById("membern").setAttribute("value",  res[2].slice(1,-2));
-    
+    document.getElementById("variableName").value=res[0].slice(2);
    }
 
 
@@ -27,7 +25,7 @@ function TeamFunc() {
 function number(){
 
 	var numbers=document.getElementById("membern").value;
-	alert(numbers);
+	
 	if(numbers>5){
 		//document.getElementById("sub1").disabled=true;
 		
