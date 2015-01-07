@@ -330,6 +330,44 @@ public class DBManager {
        		return 5; //false
        	}
     }
+  
+  
+  
+  
+  public String getUserNamebyID(String id){ 
+    	
+    	if(openConnection()){
+      		 try{
+      			String name="";
+      			String lastname="";
+      			
+      			final String SQL_SELECT = "SELECT name, lastname FROM user WHERE id=?";
+      			statement=connection.prepareStatement(SQL_SELECT);
+      			statement.setString(1, id);
+      			
+      		    ResultSet rs=statement.executeQuery();
+      		  while(rs.next())
+	            {
+ 		    	name=rs.getString("name");
+ 		    	lastname=rs.getString("lastname");
+	            }
+      		  	return name + " " + lastname;
+      		 }
+      		catch (Exception e){
+       			e.printStackTrace();
+    	            return "false";//false
+       		 	}
+       		 finally{
+       			 closeConnection();
+       		 }    		 
+       	}
+       	else{
+       		return "false"; //false
+       	}
+    }
+  
+  
+  
     
     
     public boolean insertUserRole(int userID, int roleID){

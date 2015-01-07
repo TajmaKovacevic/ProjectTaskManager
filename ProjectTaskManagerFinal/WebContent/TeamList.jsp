@@ -47,7 +47,8 @@
 
 	List<String> someList = new ArrayList<String>();
 	someList.add(0,name);
-	someList.add(1,leader);
+	String leaderName=db.getUserNamebyID(leader);
+	someList.add(1,leaderName);
 	someList.add(2,Integer.toString(number));
 	
 	%>
