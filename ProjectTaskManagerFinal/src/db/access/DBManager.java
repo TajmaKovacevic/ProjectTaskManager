@@ -147,6 +147,44 @@ public class DBManager {
     	return null;
     }
     
+    
+    
+    
+    public ArrayList<User> getFreeManagers(){
+    	if(openConnection()){
+    		 try{
+    			ArrayList<User> users=new ArrayList<User>();
+    			final String SQL_SELECT = "SELECT * FROM USER where USER.id NOT IN (SELECT DISTINCT manager_id FROM project)";
+    			statement=connection.prepareStatement(SQL_SELECT);
+    		    ResultSet rs=statement.executeQuery();
+    		    while(rs.next())
+	            {
+    		    	User u=new User();
+    		    	u.setUsername(rs.getString("username"));
+    		    	u.setPassword(rs.getString("password"));
+    		    	u.setName(rs.getString("name"));
+    		    	u.setGender(rs.getString("gender"));
+    		    	u.setContact(rs.getString("contact"));
+    		    	u.setLastName(rs.getString("lastname"));
+    		    	
+    		    	 
+    		    	users.add(u);
+    		    	}
+    		    
+    		    return users;
+    		 }
+    		 catch (Exception e){
+    			e.printStackTrace();
+ 	            return null;
+    		 	}
+    		 finally{
+    			 closeConnection();
+    		 }    		 
+    	}
+    	return null;
+    }
+    
+    
     public ArrayList<User> getFreeUsers(){
     	if(openConnection()){
     		 try{
@@ -494,6 +532,37 @@ public class DBManager {
     	    	}
     	    	return null;
     	    }
+    	  
+    	  
+    	  public ArrayList<Team> getFreeTeams(){
+  	    	if(openConnection()){
+  	    		 try{
+  	    			ArrayList<Team> teams=new ArrayList<Team>();
+  	    
+  	    			final String SQL_SELECT = "SELECT * FROM team where team.id not in(select distinct team_id from project)" ;
+  	    			statement=connection.prepareStatement(SQL_SELECT);
+  	    		    ResultSet rs=statement.executeQuery();
+  	    		    while(rs.next())
+  		            {
+  	    		    	Team t=new Team();
+  	    		    	t.setName(rs.getString("name"));
+  	    		    	t.setManage(rs.getString("team_lider"));
+  	    		    	t.setNumberMembers(rs.getInt("number_members"));
+  	    		    	teams.add(t);
+  	    		    }
+  	    		    
+  	    		    return teams;
+  	    		 }
+  	    		 catch (Exception e){
+  	    			e.printStackTrace();
+  	 	            return null;
+  	    		 	}
+  	    		 finally{
+  	    			 closeConnection();
+  	    		 }    		 
+  	    	}
+  	    	return null;
+  	    }
     	  
     	  
     	  public boolean insertTeamMember(int team, int member){
