@@ -27,6 +27,7 @@
 <title>Projects</title>
 </head>
 <body onload="init()">
+ <button class="home-btn" type="button" onclick="goToAdministration()">Home</button>
 <%
 	DBManager db=new DBManager();
 	ArrayList<User> managers=db.getFreeManagers();	
@@ -88,5 +89,6 @@
        
       </div>
  <button class="exit-btn-3" type="button" onclick="goToIndex()">Logout</button>
+
 </body>
 </html>
