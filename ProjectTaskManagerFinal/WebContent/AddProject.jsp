@@ -24,7 +24,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
 <script type="text/javascript" src="Scripts/Projects.js"></script>
-<title>Persons</title>
+<title>Projects</title>
 </head>
 <body onload="init()">
 <%

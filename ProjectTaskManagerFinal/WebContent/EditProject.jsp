@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="com.sun.xml.internal.txw2.Document"%><html>
+<%@page import="java.io.IOException" %>
+<%@page import="java.io.PrintWriter" %>
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="javax.servlet.ServletException" %>
+<%@page import="javax.servlet.http.HttpServlet" %>
+<%@page import="javax.servlet.http.HttpServletRequest" %>
+<%@page import="javax.servlet.http.HttpServletResponse" %>
+<%@page import="java.util.List" %>
+<%@page import="db.access.DBManager" %>
+<%@page import="objects.Team" %>
+<%@page import="objects.User" %>
+<%@page import="objects.Project" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,13 +29,37 @@
 </head>
 <body>
 <div>
-        <form id="list_project"  action="AddProject">
+        <form id="list_project"  action="AddProject"><br>
+        
+        
         <label for="pname" id="plbl">Projects &nbsp</label><br><br>  
-		<select size="3"	name="decision2" multiple id="sel">
-		<option selected>Project1</option>
-		<option>Project2</option>
-		<option>Project3</option>
-		</select>
+		<%
+	DBManager db=new DBManager();
+	ArrayList<Project> projects=db.getProjects();
+
+	%>
+    <select name="decisionProject" multiple id="selProject"  onchange="TeamFunc();">
+     <% for (int i =0; i < projects.size(); i++) { 
+	
+	String name=projects.get(i).getName();
+	int estimate=projects.get(i).getEstimate();
+	String description=projects.get(i).getDescription();
+	int manager=projects.get(i).getManager_id();
+	int team=projects.get(i).getTeam_id();
+
+	List<String> someList = new ArrayList<String>();
+	someList.add(0,name);
+	
+	someList.add(1,Integer.toString(estimate));
+	someList.add(2,description);
+	someList.add(3,Integer.toString(manager));
+	someList.add(4,Integer.toString(team));
+	
+	%>
+       
+       <option value=" <%= someList %> " ><%= projects.get(i).getName() %></option>
+<%} %>
+</select>
         </form> 
 </div>
 

@@ -436,3 +436,26 @@ box-shadow: inset 0px 2px 0px #d9d9d9;
 transition: all .1s ease-in-out;
 	width: 110%;
 	}
+	
+#selProject
+{
+	width: 300px;
+height: 150px;
+border-left-width: 1px;
+border-radius: 8px;
+margin-left: 10%;
+margin-top: 6px;
+	}
+	
+#plbl{
+	
+margin-left: 10%;
+margin-top:5px
+	}
+#tlbl{
+margin-left: 10%;
+	}
+#edit_project
+{
+	margin-left: 45%;
+	}

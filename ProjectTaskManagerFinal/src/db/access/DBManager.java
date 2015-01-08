@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
+import objects.Project;
 import objects.Team;
 import objects.User;
 import java.util.ArrayList;
@@ -691,6 +692,41 @@ public class DBManager {
     	       		return 0; //false
     	       	}
     	  }
+    	  
+    	  
+    	  public ArrayList<Project> getProjects(){
+    	    	if(openConnection()){
+    	    		 try{
+    	    			 ArrayList<Project> projects=new ArrayList<Project>();
+    	    			final String SQL_SELECT = "SELECT * FROM project";
+    	    			statement=connection.prepareStatement(SQL_SELECT);
+    	    		    ResultSet rs=statement.executeQuery();
+    	    		    while(rs.next())
+    		            {
+    	    		    	Project p=new Project();
+    	    		    	p.setName(rs.getString("name"));
+    	    		    	p.setEstimate(rs.getInt("estimate"));
+    	    		    	p.setDescription(rs.getString("description"));
+    	    		    	p.setManager_id(rs.getInt("manager_id"));
+    	    		    	p.setTeam_id(rs.getInt("team_id"));
+    	    		    	
+    	    		    	
+    	    		    	 
+    	    		    	projects.add(p);
+    	    		    	}
+    	    		    
+    	    		    return projects;
+    	    		 }
+    	    		 catch (Exception e){
+    	    			e.printStackTrace();
+    	 	            return null;
+    	    		 	}
+    	    		 finally{
+    	    			 closeConnection();
+    	    		 }    		 
+    	    	}
+    	    	return null;
+    	    }
     
     }
     
