@@ -1,6 +1,25 @@
 var tabLinks = new Array();
 var contentDivs = new Array();
 
+
+
+function TeamFunc() {
+    var selectBox = document.getElementById("selProject");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var parsedData = selectedValue;
+    var res = parsedData.split(",");
+    document.getElementById("project").setAttribute("value",  res[0].slice(2));
+    
+    document.getElementById("selM").setAttribute("value",  res[1]);
+    document.getElementById("selTe").setAttribute("value",  res[2]);
+    document.getElementById("estimate").setAttribute("value",  res[3].slice(1));
+    
+    document.getElementById("desc").setAttribute("value",  res[4].slice(1,-2));
+   
+   }
+
+
+
  function init() {
 
       // Grab the tab links and content divs from the page

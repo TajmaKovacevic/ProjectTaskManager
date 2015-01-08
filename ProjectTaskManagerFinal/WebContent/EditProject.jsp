@@ -67,7 +67,7 @@
 
 <div id="edit">
         <form id="edit_project"  action="EditProject">
-             <label for="project">Project name&nbsp;</label><input type="text" name="project" class="placeholder" placeholder="project name">
+             <label for="project">Project name&nbsp;</label><input type="text" name="project" class="placeholder" placeholder="project name" id="project">
         <label for="manager">Manager&nbsp;</label>
         <select id="selM">
   		<option value="man1">Manager1</option>
@@ -84,8 +84,8 @@
   		<option value="team4">Team4</option>
 		</select>
 		<br>
-        <label for="estimate">Estimate time&nbsp;</label><input type="number" name="estimate" min="1" max="1000" step="1" value ="1">
-        <label for="desc">Description&nbsp;</label><input type="textarea" name="desc" rows="4" cols="50">
+        <label for="estimate">Estimate time&nbsp;</label><input type="number" name="estimate" min="1" max="1000" step="1" value ="1" id="estimate">
+        <label for="desc">Description&nbsp;</label><input type="textarea" name="desc" rows="4" cols="50" id="desc">
         
         <br><br/><input type="submit" value="Save changes">
         </form>
