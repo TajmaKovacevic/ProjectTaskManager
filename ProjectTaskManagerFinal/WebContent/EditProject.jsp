@@ -16,6 +16,7 @@
 <%@page import="objects.Team" %>
 <%@page import="objects.User" %>
 <%@page import="objects.Project" %>
+<%@page import="objects.Task" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -51,12 +52,14 @@
 
 	List<String> someList = new ArrayList<String>();
 	someList.add(0,name);
+	someList.add(1,Integer.toString(manager));
+	someList.add(2,Integer.toString(team));
+	someList.add(3,Integer.toString(estimate));
+	someList.add(4,description);
 	
-	someList.add(1,Integer.toString(estimate));
-	someList.add(2,description);
-	someList.add(3,Integer.toString(manager));
-	someList.add(4,Integer.toString(team));
-	
+	int pr_id=db.getProjectIDbyName(name);
+	//someList.add(4,Integer.toString(pr_id));
+	ArrayList<Task> tasks=db.getTasksByPid(pr_id);
 	%>
        
        <option value=" <%= someList %> " ><%= projects.get(i).getName() %></option>

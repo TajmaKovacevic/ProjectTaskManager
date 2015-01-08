@@ -18,7 +18,12 @@ function TeamFunc() {
     document.getElementById("team_leader").setAttribute("value",  res[1]);
     document.getElementById("membern").setAttribute("value",  res[2].slice(1,-2));
     document.getElementById("variableName").value=res[0].slice(2);
-   }
+   
+
+
+
+
+}
 
 
 
@@ -45,6 +50,7 @@ function number(){
 		if(numbers==2){
 			//document.getElementById("sub1").disabled=false;
 			document.getElementById("newDropdownMenu1").style.display="block";
+			document.getElementById("newDropdownMenu2").getElementsByTagName("option")[1].selected = "selected";
 			document.getElementById("newDropdownMenu2").style.display="block";
 			document.getElementById("newDropdownMenu3").style.display="none";
 			document.getElementById("newDropdownMenu4").style.display="none";
@@ -54,6 +60,7 @@ function number(){
 			//document.getElementById("sub1").disabled=false;
 			document.getElementById("newDropdownMenu1").style.display="block";
 			document.getElementById("newDropdownMenu2").style.display="block";
+			document.getElementById("newDropdownMenu3").getElementsByTagName("option")[2].selected = "selected";
 			document.getElementById("newDropdownMenu3").style.display="block";
 			document.getElementById("newDropdownMenu4").style.display="none";
 			document.getElementById("newDropdownMenu5").style.display="none"

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import objects.Project;
+import objects.Task;
 import objects.Team;
 import objects.User;
 import java.util.ArrayList;
@@ -693,7 +694,36 @@ public class DBManager {
     	       	}
     	  }
     	  
-    	  
+    	  public int getProjectIDbyName(String name){ 
+  	    	
+  	    	if(openConnection()){
+  	      		 try{
+  	      			int projectID=0;
+  	      			
+  	      			final String SQL_SELECT = "SELECT id FROM project WHERE name=? ";
+  	      			statement=connection.prepareStatement(SQL_SELECT);
+  	      			statement.setString(1, name);
+  	      			
+  	      		    ResultSet rs=statement.executeQuery();
+  	      		  while(rs.next())
+  		            {
+  	 		    	projectID=rs.getInt("id");
+  		            }
+  	      		  	return projectID;
+  	      		 }
+  	      		catch (Exception e){
+  	       			e.printStackTrace();
+  	    	            return 5;//false
+  	       		 	}
+  	       		 finally{
+  	       			 closeConnection();
+  	       		 }    		 
+  	       	}
+  	       	else{
+  	       		return 5; //false
+  	       	}
+  	    }
+  	  
     	  public ArrayList<Project> getProjects(){
     	    	if(openConnection()){
     	    		 try{
@@ -727,6 +757,44 @@ public class DBManager {
     	    	}
     	    	return null;
     	    }
+    	  
+    	  
+    	  public ArrayList<Task> getTasksByPid(int pid){
+  	    	if(openConnection()){
+  	    		 try{
+  	    			 ArrayList<Task> tasks=new ArrayList<Task>();
+  	    			final String SQL_SELECT = "SELECT * FROM task where project_id=?";
+  	    			statement=connection.prepareStatement(SQL_SELECT);
+  	    			statement.setInt(1, pid);
+  	    		    ResultSet rs=statement.executeQuery();
+  	    		    while(rs.next())
+  		            {
+  	    		    	
+  	    		    	Task t=new Task();
+  	    		    
+  	    		    	t.setName(rs.getString("name"));
+  	    		    	t.setEstimate(rs.getInt("estimate"));
+  	    		    	t.setDecription(rs.getString("description"));
+  	    		    	t.setStatus(rs.getString("status"));
+  	    		    	t.setCreated(rs.getDate("created"));
+  	    		    	t.setPerson_id(rs.getInt("person_id"));
+  	    		    	t.setProject_id(rs.getInt("project_id"));
+  	    		    
+  	    		    	tasks.add(t);
+  	    		    	}
+  	    		    
+  	    		    return tasks;
+  	    		 }
+  	    		 catch (Exception e){
+  	    			e.printStackTrace();
+  	 	            return null;
+  	    		 	}
+  	    		 finally{
+  	    			 closeConnection();
+  	    		 }    		 
+  	    	}
+  	    	return null;
+  	    }
     
     }
     

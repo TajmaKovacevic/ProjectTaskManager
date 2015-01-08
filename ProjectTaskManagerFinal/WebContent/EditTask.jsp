@@ -23,14 +23,14 @@
       
  <div id="add">
         <form id="add_task"  action="AddTask">
-        <label for="task">Task name&nbsp;</label><input type="text" name="task" class="placeholder" placeholder="task name">
-        <label for="desc">Description&nbsp;</label><input type="textarea" name="desc" rows="4" cols="50">
+        <label for="task">Task name&nbsp;</label><input type="text" name="task" class="placeholder" placeholder="task name" value="Task1">
+        <label for="desc">Description&nbsp;</label><input type="textarea" name="desc" rows="4" cols="50" value="opis taska">
         <label for="estimate">Estimate time&nbsp;</label><input type="number" name="estimate" min="1" max="1000" step="1" value ="1">
         <label for="status">Status&nbsp;</label><br>
-        <input type="checkbox" name="finished" value="Finished">Finished
+        <input type="checkbox" name="finished" value="Finished" checked="checked">Finished
 		<input type="checkbox" name="expired" value="Expired">Expired
 		<input type="checkbox" name="failed" value="Failed">Failed
-        <label for="created">Created&nbsp;</label><br><input type="date" name="created">
+        <label for="created">Created&nbsp;</label><br><input type="date" name="created" value="2013-01-08">
         <label for="person">Assigned to&nbsp;</label>
         <select>
   		<option value="man1">Melika</option>
