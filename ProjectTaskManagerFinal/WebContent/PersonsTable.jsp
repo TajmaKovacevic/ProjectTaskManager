@@ -33,6 +33,7 @@
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+	<script type="text/javascript" src="Scripts/Developer.js"></script>
 	</head>
 	<body>
 	
@@ -70,6 +71,7 @@
 							<th>Contacte</th>
 							<th>Gender</th>
 							<th>Role</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -98,7 +100,7 @@
 	
 	%>
 					
-						<tr><td class="user-name"><%= users.get(i).getUsername()%></td><td class="user-email"><%= users.get(i).getPassword()%></td><td class="user-phone"><%= users.get(i).getName()%></td><td class="user-mobile"><%= users.get(i).getLastName()%></td><td class="user-name"><%= users.get(i).getContact()%></td><td class="user-name"><%= users.get(i).getGender()%></td><td class="user-name"><%= ur %></td></tr>
+						<tr><td class="user-name"><%= users.get(i).getUsername()%></td><td class="user-email"><%= users.get(i).getPassword()%></td><td class="user-phone"><%= users.get(i).getName()%></td><td class="user-mobile"><%= users.get(i).getLastName()%></td><td class="user-name"><%= users.get(i).getContact()%></td><td class="user-name"><%= users.get(i).getGender()%></td><td class="user-name"><%= ur %></td><td><img onclick="goToIndex()" src="https://timbaze.teamwork.com/images/icons/user/edit3.png" alt="" border=3 height=25 width=25 ></img></td></tr>
 						<%} %>
 					</tbody>
 				</table>
