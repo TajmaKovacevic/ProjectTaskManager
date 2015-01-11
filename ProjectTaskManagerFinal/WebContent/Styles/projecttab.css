@@ -18,7 +18,10 @@
 /*--------------------------------
  Functional Styles (Required)
 ---------------------------------*/
-
+html
+{
+	background:#f8f8f8;
+	}
 .header { position: relative; }
 #toggle, .toggle { display: none; }
 .menu > li { list-style: none; float:left;	}
@@ -94,6 +97,14 @@ header span {
 	color: #31bc86;
 	padding: 50px 20px 34px;
 }
+
+
+#current-page {
+	background: #F2F2F2;
+	box-shadow: inset 0px 5px #31bc86;
+	color: #31bc86;
+	
+	}
 
 .toggle{ 
 	z-index: 2; 

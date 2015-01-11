@@ -22,7 +22,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>People</title>
+		<title>Persons in team</title>
 		<meta name="description" content="Sticky Table Headers Revisited: Creating functional and flexible sticky table headers" />
 		<meta name="keywords" content="Sticky Table Headers Revisited" />
 		<meta name="author" content="Codrops" />
@@ -30,6 +30,8 @@
 		<link rel="stylesheet" type="text/css" href="Styles/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="Styles/demo.css" />
 		<link rel="stylesheet" type="text/css" href="Styles/component.css" />
+		<link rel="stylesheet" type="text/css" href="Styles/projecttab.css" />
+		
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -56,7 +58,15 @@
 				
 			</header>
 			
-			
+			<div>
+	<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick></label>
+	<ul class="menu">
+	  <li><a href="#">OVERVIEW</a></li>
+	  <li id="current-page"><a href="#" >PEOPLE</a></li>		
+	  <li><a href="#">TASKS</a></li>	
+	  <li><a href="#">MILESTONES</a></li>
+	</ul>
+</div>
 			
 			<div class="component">
 				<h2>People</h2>

@@ -17,10 +17,12 @@
 	<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick></label>
 	<ul class="menu">
 	  <li><a href="#">OVERVIEW</a></li>
-	  <li><a href="#">PEOPLE</a></li>		
+	  <li><a href="PersonsInTeam.jsp">PEOPLE</a></li>		
 	  <li><a href="#">TASKS</a></li>	
 	  <li><a href="#">MILESTONES</a></li>
 	</ul>
 </div>
+
+
 </body>
 </html>

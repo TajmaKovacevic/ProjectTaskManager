@@ -15,6 +15,7 @@
 <%@page import="java.util.List" %>
 <%@page import="db.access.DBManager" %>
 <%@page import="objects.User" %>
+<%@page import="objects.Project" %>
 <%@ page import="java.util.ArrayList" %>
 <html >
 <head>
@@ -22,7 +23,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>People</title>
+		<title>Projects</title>
 		<meta name="description" content="Sticky Table Headers Revisited: Creating functional and flexible sticky table headers" />
 		<meta name="keywords" content="Sticky Table Headers Revisited" />
 		<meta name="author" content="Codrops" />
@@ -39,7 +40,7 @@
 	
 	<%
 	DBManager db=new DBManager();
-	ArrayList<User> users=db.getUsers();
+	ArrayList<Project> projects=db.getProjects();
 	
 	
 	
@@ -56,10 +57,10 @@
 				
 			</header>
 			
-			
+		
 			
 			<div class="component">
-				<h2>People</h2>
+				<h2>Projects</h2>
 				
 				<table>
 				
@@ -67,48 +68,34 @@
 				
 					<thead>
 						<tr>
-							<th>Username</th>
-							<th>Password</th>
-							<th>Name</th>
-							<th>Last name</th>
-							<th>Contacte</th>
-							<th>Gender</th>
-							<th>Role</th>
+							<th>Project name</th>
+							<th>Manager</th>
+							<th>Team</th>
+							<th>Estimate</th>
+							<th>Description</th>
+							
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 					
-						<% for (int i =0; i < users.size(); i++) { 
+						 <% for (int i =0; i < projects.size(); i++) { 
 	
-	String name=users.get(i).getName();
-	String username=users.get(i).getUsername();
-	String password=users.get(i).getPassword();
-	String lastName=users.get(i).getLastName();
-	String contact=users.get(i).getContact();
-	String email=users.get(i).getContact();
-	String gender=users.get(i).getGender();
-	int userRole=db.getUserRole(name,lastName);
-	//String role=users.get(i)
-	List<String> someList = new ArrayList<String>();
-	someList.add(0,username);
-	someList.add(1,password);
-	someList.add(2,name);
-	someList.add(3,lastName);
-	someList.add(4,gender);
-	someList.add(5,contact);
-	someList.add(6,email);
-	String ur=Integer.toString(userRole);
-	someList.add(7, ur);
+	String name=projects.get(i).getName();
+	int estimate=projects.get(i).getEstimate();
+	String description=projects.get(i).getDescription();
+	int manager=projects.get(i).getManager_id();
+	int team=projects.get(i).getTeam_id();
+
 	
 	%>
 					
-						<tr><td class="user-name"><%= users.get(i).getUsername()%></td><td class="user-email"><%= users.get(i).getPassword()%></td><td class="user-phone"><%= users.get(i).getName()%></td><td class="user-mobile"><%= users.get(i).getLastName()%></td><td class="user-name"><%= users.get(i).getContact()%></td><td class="user-name"><%= users.get(i).getGender()%></td><td class="user-name"><%= ur %></td><td><img onclick="goToIndex()" src="https://timbaze.teamwork.com/images/icons/user/edit3.png" alt="" border=3 height=25 width=25 ></img></td></tr>
+						<tr><td class="user-name"><%= projects.get(i).getName()%></td><td class="user-email"><%= projects.get(i).getManager_id() %></td><td class="user-phone"><%= projects.get(i).getTeam_id()%></td><td class="user-mobile"><%= projects.get(i).getEstimate()%></td><td class="user-name"><%= projects.get(i).getDescription()%></td><td><img onclick="goToIndex()" src="http://newharvest.ca/wordpress/wp-content/uploads/2012/12/icon_grey_seo.png" alt="" border=3 height=25 width=25 ></img></td></tr>
 						<%} %>
 					</tbody>
 				</table>
 				
- <a href="#" class="myButton">Add user</a>	
+ <a href="#" id="projectButton">Add project</a>	
 			</div>
 			
 		</div><!-- /container -->

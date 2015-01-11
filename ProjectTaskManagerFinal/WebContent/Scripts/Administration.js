@@ -1,11 +1,11 @@
 function goToPersons(){
-        	window.location = 'Persons.jsp';
+        	window.location = 'PersonsTable.jsp';
         }
 function goToTeams(){
 	window.location = 'TeamManager.jsp';
 }
 function goToProjects(){
-	window.location = 'Projects.jsp';
+	window.location = 'ProjectsTable.jsp';
 }
 function goToIndex(){
 	window.location = 'index.jsp';
